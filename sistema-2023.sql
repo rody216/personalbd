@@ -23,31 +23,45 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `cliente`
---
 
-DROP TABLE IF EXISTS `cliente`;
-CREATE TABLE IF NOT EXISTS `cliente` (
+
+--
+-- Creación de la tabla "cliente"
+CREATE TABLE `cliente` (
   `idcliente` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `apellido` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `cedula` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `celular` varchar(15) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `pais` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `direccion` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `foto` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `grupo_sangre` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `apellido` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `cedula` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `celular` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `pais` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `direccion` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `foto` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `grupo_sangre` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
--- Volcado de datos para la tabla `cliente`
---
-
+-- Inserción de datos en la tabla "cliente"
 INSERT INTO `cliente` (`idcliente`, `nombre`, `apellido`, `cedula`, `celular`, `pais`, `direccion`, `foto`, `grupo_sangre`) VALUES
-(3, 'John', 'Doe', '456789012', '987654321', 'Estados Unidos', 'Los Angeles', 'foto3.jpg', 'O+'),
-(4, 'Juan', 'Perez', '567890123', '97877789', 'México', 'Ciudad de México', 'foto4.jpg', 'AB+');
+(1, 'Luis', 'González', '123456789', '55555555', 'Argentina', 'Buenos Aires', 'foto1.jpg', 'A+'),
+(2, 'Ana', 'Martínez', '987654321', '44444444', 'España', 'Madrid', 'foto2.jpg', 'B-');
+
+-- Creación de la tabla "parentesco"
+CREATE TABLE `parentesco` (
+  `id` INT PRIMARY KEY,
+  `cliente_id` INT,
+  `nombre` VARCHAR(50),
+  `relacion` VARCHAR(50),
+  `edad` INT,
+  `direccion` VARCHAR(100),
+  FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`idcliente`)
+);
+
+-- Inserción de datos en la tabla "parentesco"
+INSERT INTO `parentesco` (`id`, `cliente_id`, `nombre`, `relacion`, `edad`, `direccion`) VALUES
+(1, 1, 'Pedro', 'Hermano', 25, 'Calle Principal 123'),
+(2, 1, 'María', 'Hermana', 20, 'Avenida Central 456'),
+(3, 2, 'Carlos', 'Padre', 50, 'Calle Secundaria 789');
+
 
 -- --------------------------------------------------------
 
@@ -71,6 +85,109 @@ CREATE TABLE IF NOT EXISTS `configuracion` (
 
 INSERT INTO `configuracion` (`id`, `nombre`, `telefono`, `email`, `direccion`) VALUES
 (1, 'Sistemas Free', '98745698', 'ana.info1999@gamil.com', 'Trujillo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `departamentos`
+--
+
+CREATE TABLE `departamentos` (
+  `id_departamento` INT NOT NULL AUTO_INCREMENT,
+  `nombre_departamento` VARCHAR(50) NOT NULL,
+  `pais` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id_departamento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Inserción de datos en la tabla `departamentos` para Colombia
+INSERT INTO `departamentos` (`nombre_departamento`, `pais`) VALUES
+('Amazonas', 'Colombia'),
+('Antioquia', 'Colombia'),
+('Arauca', 'Colombia'),
+('Atlántico', 'Colombia'),
+('Bolívar', 'Colombia'),
+('Boyacá', 'Colombia'),
+('Caldas', 'Colombia'),
+('Caquetá', 'Colombia'),
+('Casanare', 'Colombia'),
+('Cauca', 'Colombia'),
+('Cesar', 'Colombia'),
+('Chocó', 'Colombia'),
+('Córdoba', 'Colombia'),
+('Cundinamarca', 'Colombia'),
+('Guainía', 'Colombia'),
+('Guaviare', 'Colombia'),
+('Huila', 'Colombia'),
+('La Guajira', 'Colombia'),
+('Magdalena', 'Colombia'),
+('Meta', 'Colombia'),
+('Nariño', 'Colombia'),
+('Norte de Santander', 'Colombia'),
+('Putumayo', 'Colombia'),
+('Quindío', 'Colombia'),
+('Risaralda', 'Colombia'),
+('San Andrés y Providencia', 'Colombia'),
+('Santander', 'Colombia'),
+('Sucre', 'Colombia'),
+('Tolima', 'Colombia'),
+('Valle del Cauca', 'Colombia'),
+('Vaupés', 'Colombia'),
+('Vichada', 'Colombia');
+
+-- Inserción de datos en la tabla `departamentos` para Ecuador
+INSERT INTO `departamentos` (`nombre_departamento`, `pais`) VALUES
+('Azuay', 'Ecuador'),
+('Bolívar', 'Ecuador'),
+('Cañar', 'Ecuador'),
+('Carchi', 'Ecuador'),
+('Chimborazo', 'Ecuador'),
+('Cotopaxi', 'Ecuador'),
+('El Oro', 'Ecuador'),
+('Esmeraldas', 'Ecuador'),
+('Galápagos', 'Ecuador'),
+('Guayas', 'Ecuador'),
+('Imbabura', 'Ecuador'),
+('Loja', 'Ecuador'),
+('Los Ríos', 'Ecuador'),
+('Manabí', 'Ecuador'),
+('Morona Santiago', 'Ecuador'),
+('Napo', 'Ecuador'),
+('Orellana', 'Ecuador'),
+('Pastaza', 'Ecuador'),
+('Pichincha', 'Ecuador'),
+('Santa Elena', 'Ecuador'),
+('Santo Domingo de los Tsáchilas', 'Ecuador'),
+('Sucumbíos', 'Ecuador'),
+('Tungurahua', 'Ecuador'),
+('Zamora Chinchipe', 'Ecuador');
+
+-- Inserción de datos en la tabla `departamentos` para Venezuela
+INSERT INTO `departamentos` (`nombre_departamento`, `pais`) VALUES
+('Amazonas', 'Venezuela'),
+('Anzoátegui', 'Venezuela'),
+('Apure', 'Venezuela'),
+('Aragua', 'Venezuela'),
+('Barinas', 'Venezuela'),
+('Bolívar', 'Venezuela'),
+('Carabobo', 'Venezuela'),
+('Cojedes', 'Venezuela'),
+('Delta Amacuro', 'Venezuela'),
+('Falcón', 'Venezuela'),
+('Guárico', 'Venezuela'),
+('Lara', 'Venezuela'),
+('Mérida', 'Venezuela'),
+('Miranda', 'Venezuela'),
+('Monagas', 'Venezuela'),
+('Nueva Esparta', 'Venezuela'),
+('Portuguesa', 'Venezuela'),
+('Sucre', 'Venezuela'),
+('Táchira', 'Venezuela'),
+('Trujillo', 'Venezuela'),
+('Vargas', 'Venezuela'),
+('Yaracuy', 'Venezuela'),
+('Zulia', 'Venezuela');
+
+
 
 -- --------------------------------------------------------
 

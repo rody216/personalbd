@@ -46,6 +46,12 @@ if (empty($_SESSION['active'])) {
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link d-flex" href="parentesco.php">
+                            <i class="fab fa-product-hunt mr-2 fa-2x"></i>
+                            <p>Parentenco</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link d-flex" href="clientes.php">
                             <i class=" fas fa-users mr-2 fa-2x"></i>
                             <p> Empleados</p>
