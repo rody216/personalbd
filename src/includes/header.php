@@ -42,7 +42,7 @@ if (empty($_SESSION['active'])) {
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="productos.php">
                             <i class="fab fa-product-hunt mr-2 fa-2x"></i>
-                            <p> Productos</p>
+                            <p>Registrar Familiar</p>
                         </a>
                     </li>
                     <li class="nav-item">

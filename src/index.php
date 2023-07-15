@@ -36,7 +36,7 @@ include_once "includes/header.php";
                     <i class="fas fa-users fa-2x"></i>
                 </div>
                 <a href="clientes.php" class="card-category text-success font-weight-bold">
-                    Clientes
+                    Empleados
                 </a>
                 <h3 class="card-title"><?php echo $total['clientes']; ?></h3>
             </div>
@@ -51,7 +51,8 @@ include_once "includes/header.php";
                     <i class="fab fa-product-hunt fa-2x"></i>
                 </div>
                 <a href="productos.php" class="card-category text-danger font-weight-bold">
-                    Productos
+                    Registro Familiar
+
                 </a>
                 <h3 class="card-title"><?php echo $total['productos']; ?></h3>
             </div>
@@ -66,7 +67,7 @@ include_once "includes/header.php";
                     <i class="fas fa-cash-register fa-2x"></i>
                 </div>
                 <a href="ventas.php" class="card-category text-info font-weight-bold">
-                    Ventas
+                    Imprimir Registros
                 </a>
                 <h3 class="card-title"><?php echo $total['ventas']; ?></h3>
             </div>
@@ -78,7 +79,7 @@ include_once "includes/header.php";
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h3 class="title-2 m-b-40">Clientes Registro <?php echo $total['clientes']; ?></h3>
+                <h3 class="title-2 m-b-40">Empleados Registro <?php echo $total['clientes']; ?></h3>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered" id="tbl">
