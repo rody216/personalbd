@@ -23,7 +23,7 @@ if (empty($_SESSION['active'])) {
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo"><a href="./" class="simple-text logo-normal">
-                    Sistemas User
+                    BLI - NP
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
@@ -48,7 +48,7 @@ if (empty($_SESSION['active'])) {
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="clientes.php">
                             <i class=" fas fa-users mr-2 fa-2x"></i>
-                            <p> Clientes</p>
+                            <p> Empleados</p>
                         </a>
                     </li>
                     <li class="nav-item">
