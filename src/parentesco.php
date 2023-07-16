@@ -96,191 +96,196 @@ include_once "includes/header.php";
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <label for="validationDefault01" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="validationDefault01" name="nombre" required>
+                                <input type="text" placeholder="Ingrese Nombre" class="form-control" id="validationDefault01" name="nombre" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationDefault02" class="form-label">Apellido</label>
-                                <input type="text" class="form-control" id="validationDefault02" name="apellido" required>
+                                <input type="text" placeholder="Ingrese Apellido" class="form-control" id="validationDefault02" name="apellido" required>
                             </div>
-                            <div class="col-md-4">
-                                <label for="validationDefaultUsername" class="form-label">Correo</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                                    <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
-                                </div>
+                            <div class="mb-4">
+                                <label for="form-group" class="form-label">Subir Imagen</label>
+                                <input type="file" class="form-control" aria-label="file example" required>
+                                <div class="invalid-feedback">Ejemplo de form file feedback no válido</div>
                             </div>
+
+
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="pais" class="form-label">Buscar Pais</label>
                                     <select name="pais" id="pais" class="form-control">
-                                    <option value="">Seleccione un Pais</option>
-                                    <?php
-                                    include "../conexion.php";
-                                    $query = mysqli_query($conexion, "SELECT * FROM pais");
-                                    while ($row = mysqli_fetch_assoc($query)) {
-                                        echo '<option value="' . $row['nombre'] . '">' . $row['nombre'] . '</option>';
-                                    }
-                                    ?>
+                                        <option value="">Seleccione un Pais</option>
+                                        <?php
+                                        include "../conexion.php";
+                                        $query = mysqli_query($conexion, "SELECT * FROM pais");
+                                        while ($row = mysqli_fetch_assoc($query)) {
+                                            echo '<option value="' . $row['nombre'] . '">' . $row['nombre'] . '</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="departamento" class="form-label">Buscar Departamento</label>
-                                <select name="departamento" id="departamento" class="form-control">
-                                    <option value="">Seleccione un departamento</option>
-                                    <?php
-                                    include "../conexion.php";
-                                    $query = mysqli_query($conexion, "SELECT * FROM departamentos");
-                                    while ($row = mysqli_fetch_assoc($query)) {
-                                        echo '<option value="' . $row['nombre_departamento'] . '">' . $row['nombre_departamento'] . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="pais" class="form-label">Buscar Ciudad</label>
-                                    <select name="pais" id="pais" class="form-control">
-                                        
+                                    <label for="departamento" class="form-label">Buscar Departamento</label>
+                                    <select name="departamento" id="departamento" class="form-control">
+                                        <option value="">Seleccione un departamento</option>
+                                        <?php
+                                        include "../conexion.php";
+                                        $query = mysqli_query($conexion, "SELECT * FROM departamentos");
+                                        while ($row = mysqli_fetch_assoc($query)) {
+                                            echo '<option value="' . $row['nombre_departamento'] . '">' . $row['nombre_departamento'] . '</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="validationDefault05" class="form-label">Subir Imagen</label>
-                                <input type="file" class="form-control" aria-label="file example" required>
-                                <div class="invalid-feedback">Ejemplo de form file feedback no válido</div>
-                            </div>
-                            </div>
-                            </div>
-                            
-                        <br><br><br><br><br><br>
-                        <div id="parentescos">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="nombre_parentesco" class="text-dark font-weight-bold">Nombre Parentesco</label>
-                                        <input type="text" placeholder="Ingrese Nombre Parentesco" name="parentesco[0][nombre]" class="form-control">
-                                    </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="departamento" class="form-label">Buscar Municipio</label>
+                                    <select name="departamento" id="departamento" class="form-control">
+                                        <option value="">Seleccione un Municipio</option>
+                                        <?php
+                                        include "../conexion.php";
+                                        $query = mysqli_query($conexion, "SELECT * FROM municipios");
+                                        while ($row = mysqli_fetch_assoc($query)) {
+                                            echo '<option value="' . $row['Nombre'] . '">' . $row['Nombre'] . '</option>';
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="relacion_parentesco" class="text-dark font-weight-bold">Relación Parentesco</label>
-                                        <input type="text" placeholder="Ingrese Relación Parentesco" name="parentesco[0][relacion]" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="edad_parentesco" class="text-dark font-weight-bold">Edad Parentesco</label>
-                                        <input type="text" placeholder="Ingrese Edad Parentesco" name="parentesco[0][edad]" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="direccion_parentesco" class="text-dark font-weight-bold">Dirección Parentesco</label>
-                                        <input type="text" placeholder="Ingrese Dirección Parentesco" name="parentesco[0][direccion]" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="button" class="btn btn-primary" onclick="agregarParentesco()">Agregar Parentesco</button>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="tbl">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>#</th>
-                                <th>Nombre Parentesco</th>
-                                <th>Relación Parentesco</th>
-                                <th>Edad Parentesco</th>
-                                <th>Dirección Parentesco</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $query_parentescos = mysqli_query($conexion, "SELECT * FROM parentesco");
-                            while ($data_parentesco = mysqli_fetch_assoc($query_parentescos)) {
-                                $id_parentesco = $data_parentesco['id'];
-                                $nombre_parentesco = $data_parentesco['nombre'];
-                                $relacion_parentesco = $data_parentesco['relacion'];
-                                $edad_parentesco = $data_parentesco['edad'];
-                                $direccion_parentesco = $data_parentesco['direccion'];
-                            ?>
-                                <tr>
-                                    <td><?php echo $id_parentesco; ?></td>
-                                    <td><?php echo $nombre_parentesco; ?></td>
-                                    <td><?php echo $relacion_parentesco; ?></td>
-                                    <td><?php echo $edad_parentesco; ?></td>
-                                    <td><?php echo $direccion_parentesco; ?></td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="tbl">
-                        <thead class="thead-dark">
+
+                    <br><br>
+                    <div id="parentescos">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="nombre_parentesco" class="text-dark font-weight-bold">Nombre Parentesco</label>
+                                    <input type="text" placeholder="Ingrese Nombre Parentesco" name="parentesco[0][nombre]" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="relacion_parentesco" class="text-dark font-weight-bold">Relación Parentesco</label>
+                                    <input type="text" placeholder="Ingrese Relación Parentesco" name="parentesco[0][relacion]" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="edad_parentesco" class="text-dark font-weight-bold">Edad Parentesco</label>
+                                    <input type="text" placeholder="Ingrese Edad Parentesco" name="parentesco[0][edad]" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="direccion_parentesco" class="text-dark font-weight-bold">Dirección Parentesco</label>
+                                    <input type="text" placeholder="Ingrese Dirección Parentesco" name="parentesco[0][direccion]" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-primary" onclick="agregarParentesco()">Agregar Parentesco</button>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered" id="tbl">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Parentesco</th>
+                            <th>Relación Parentesco</th>
+                            <th>Edad Parentesco</th>
+                            <th>Dirección Parentesco</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $query_parentescos = mysqli_query($conexion, "SELECT * FROM parentesco");
+                        while ($data_parentesco = mysqli_fetch_assoc($query_parentescos)) {
+                            $id_parentesco = $data_parentesco['id'];
+                            $nombre_parentesco = $data_parentesco['nombre'];
+                            $relacion_parentesco = $data_parentesco['relacion'];
+                            $edad_parentesco = $data_parentesco['edad'];
+                            $direccion_parentesco = $data_parentesco['direccion'];
+                        ?>
                             <tr>
-                                <th>#</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Cedula</th>
-                                <th>Celular</th>
-                                <th>País</th>
-                                <th>Dirección</th>
-                                <th>Foto</th>
-                                <th>Grupo Sanguíneo</th>
-                                <th></th>
+                                <td><?php echo $id_parentesco; ?></td>
+                                <td><?php echo $nombre_parentesco; ?></td>
+                                <td><?php echo $relacion_parentesco; ?></td>
+                                <td><?php echo $edad_parentesco; ?></td>
+                                <td><?php echo $direccion_parentesco; ?></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $query = mysqli_query($conexion, "SELECT * FROM cliente");
-                            $result = mysqli_num_rows($query);
-                            if ($result > 0) {
-                                while ($data = mysqli_fetch_assoc($query)) {
-                                    $cliente_id = $data['idcliente'];
-                            ?>
-                                    <tr>
-                                        <td><?php echo $cliente_id; ?></td>
-                                        <td><?php echo $data['nombre']; ?></td>
-                                        <td><?php echo $data['apellido']; ?></td>
-                                        <td><?php echo $data['cedula']; ?></td>
-                                        <td><?php echo $data['celular']; ?></td>
-                                        <td><?php echo $data['pais']; ?></td>
-                                        <td><?php echo $data['direccion']; ?></td>
-                                        <td><?php echo $data['foto']; ?></td>
-                                        <td><?php echo $data['grupo_sangre']; ?></td>
-                                        <td>
-                                            <a href="#" onclick="editarCliente(<?php echo $cliente_id; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
-                                            <form action="eliminar_cliente.php?id=<?php echo $cliente_id; ?>" method="post" class="confirmar d-inline">
-                                                <button type="submit" class="btn btn-danger"><i class='fas fa-trash-alt'></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                            <?php
-                                }
-                            } ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered" id="tbl">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Cedula</th>
+                            <th>Celular</th>
+                            <th>País</th>
+                            <th>Dirección</th>
+                            <th>Foto</th>
+                            <th>Grupo Sanguíneo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $query = mysqli_query($conexion, "SELECT * FROM cliente");
+                        $result = mysqli_num_rows($query);
+                        if ($result > 0) {
+                            while ($data = mysqli_fetch_assoc($query)) {
+                                $cliente_id = $data['idcliente'];
+                        ?>
+                                <tr>
+                                    <td><?php echo $cliente_id; ?></td>
+                                    <td><?php echo $data['nombre']; ?></td>
+                                    <td><?php echo $data['apellido']; ?></td>
+                                    <td><?php echo $data['cedula']; ?></td>
+                                    <td><?php echo $data['celular']; ?></td>
+                                    <td><?php echo $data['pais']; ?></td>
+                                    <td><?php echo $data['direccion']; ?></td>
+                                    <td><?php echo $data['foto']; ?></td>
+                                    <td><?php echo $data['grupo_sangre']; ?></td>
+                                    <td>
+                                        <a href="#" onclick="editarCliente(<?php echo $cliente_id; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                        <form action="eliminar_cliente.php?id=<?php echo $cliente_id; ?>" method="post" class="confirmar d-inline">
+                                            <button type="submit" class="btn btn-danger"><i class='fas fa-trash-alt'></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <?php include_once "includes/footer.php"; ?>

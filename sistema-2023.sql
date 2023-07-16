@@ -187,7 +187,111 @@ INSERT INTO `departamentos` (`nombre_departamento`, `pais`) VALUES
 ('Yaracuy', 'Venezuela'),
 ('Zulia', 'Venezuela');
 
+-- --------------------------------------------------------
 
+--
+-- Crear tabla Municipios
+CREATE TABLE Municipios (
+    ID INT PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Departamento VARCHAR(100),
+    Pais VARCHAR(100)
+);
+
+-- Insertar municipios del departamento de Amazonas
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (1, 'Leticia', 'Amazonas', 'Colombia'),
+    (2, 'Puerto Nariño', 'Amazonas', 'Colombia');
+
+-- Insertar municipios del departamento de Antioquia
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (3, 'Medellín', 'Antioquia', 'Colombia'),
+    (4, 'Bello', 'Antioquia', 'Colombia'),
+    (5, 'Envigado', 'Antioquia', 'Colombia');
+
+-- Insertar municipios del departamento de Atlántico
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (6, 'Barranquilla', 'Atlántico', 'Colombia'),
+    (7, 'Soledad', 'Atlántico', 'Colombia'),
+    (8, 'Malambo', 'Atlántico', 'Colombia');
+
+-- Continuar con los demás departamentos y sus municipios
+
+-- Insertar municipios del departamento de Bolívar
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (9, 'Cartagena', 'Bolívar', 'Colombia'),
+    (10, 'Magangué', 'Bolívar', 'Colombia'),
+    (11, 'El Carmen de Bolívar', 'Bolívar', 'Colombia');
+
+-- Insertar municipios del departamento de Boyacá
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (12, 'Tunja', 'Boyacá', 'Colombia'),
+    (13, 'Duitama', 'Boyacá', 'Colombia'),
+    (14, 'Sogamoso', 'Boyacá', 'Colombia');
+
+-- Insertar municipios del departamento de Caldas
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (15, 'Manizales', 'Caldas', 'Colombia'),
+    (16, 'Pereira', 'Caldas', 'Colombia'),
+    (17, 'La Dorada', 'Caldas', 'Colombia');
+
+-- Insertar municipios del departamento de Caquetá
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (18, 'Florencia', 'Caquetá', 'Colombia'),
+    (19, 'San Vicente del Caguán', 'Caquetá', 'Colombia'),
+    (20, 'Puerto Rico', 'Caquetá', 'Colombia');
+
+-- Continuar con los demás departamentos y sus municipios
+
+-- Insertar municipios del departamento de Cundinamarca
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (47, 'Bogotá', 'Cundinamarca', 'Colombia'),
+    (48, 'Soacha', 'Cundinamarca', 'Colombia'),
+    (49, 'Zipaquirá', 'Cundinamarca', 'Colombia');
+
+-- Insertar municipios del departamento de Guainía
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (51, 'Inírida', 'Guainía', 'Colombia');
+
+-- Insertar municipios del departamento de Guaviare
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (52, 'San José del Guaviare', 'Guaviare', 'Colombia');
+
+-- Insertar municipios del departamento de Huila
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (53, 'Neiva', 'Huila', 'Colombia'),
+    (54, 'Pitalito', 'Huila', 'Colombia'),
+    (55, 'Garzón', 'Huila', 'Colombia');
+
+-- Continuar con los demás departamentos y sus municipios
+
+-- Insertar municipios del departamento de Valle del Cauca
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (102, 'Cali', 'Valle del Cauca', 'Colombia'),
+    (103, 'Buenaventura', 'Valle del Cauca', 'Colombia'),
+    (104, 'Palmira', 'Valle del Cauca', 'Colombia');
+
+-- Insertar municipios del departamento de Vaupés
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (106, 'Mitú', 'Vaupés', 'Colombia');
+
+-- Insertar municipios del departamento de Vichada
+INSERT INTO Municipios (ID, Nombre, Departamento, Pais)
+VALUES
+    (107, 'Puerto Carreño', 'Vichada', 'Colombia');
 
 -- --------------------------------------------------------
 
