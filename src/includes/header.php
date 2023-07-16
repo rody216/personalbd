@@ -83,7 +83,7 @@ if (empty($_SESSION['active'])) {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="datos_personales.php">
-                            <i class="fas fa-cart-plus mr-2 fa-2x"></i>
+                            <i class="fab fa-product-hunt mr-2 fa-2x"></i>
                             <p>Datos Personales</p>
                         </a>
                     </li>

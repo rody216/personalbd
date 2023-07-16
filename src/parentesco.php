@@ -95,15 +95,15 @@ include_once "includes/header.php";
 
                         <div class="row g-3">
                             <div class="col-md-4">
-                                <label for="validationDefault01" class="form-label">Nombre</label>
+                                <label for="validationDefault01" class="text-success font-weight-bold">Nombre</label>
                                 <input type="text" placeholder="Ingrese Nombre" class="form-control" id="validationDefault01" name="nombre" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="validationDefault02" class="form-label">Apellido</label>
+                                <label for="validationDefault02" class="text-success font-weight-bold">Apellido</label>
                                 <input type="text" placeholder="Ingrese Apellido" class="form-control" id="validationDefault02" name="apellido" required>
                             </div>
                             <div class="mb-4">
-                                <label for="form-group" class="form-label">Subir Imagen</label>
+                                <label for="form-group" class="text-success font-weight-bold">Subir Imagen</label>
                                 <input type="file" class="form-control" aria-label="file example" required>
                                 <div class="invalid-feedback">Ejemplo de form file feedback no válido</div>
                             </div>
@@ -111,7 +111,7 @@ include_once "includes/header.php";
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="pais" class="form-label">Buscar Pais</label>
+                                    <label for="pais" class="text-success font-weight-bold">Buscar Pais</label>
                                     <select name="pais" id="pais" class="form-control">
                                         <option value="">Seleccione un Pais</option>
                                         <?php
@@ -126,7 +126,7 @@ include_once "includes/header.php";
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="departamento" class="form-label">Buscar Departamento</label>
+                                    <label for="departamento" class="text-success font-weight-bold">Buscar Departamento</label>
                                     <select name="departamento" id="departamento" class="form-control">
                                         <option value="">Seleccione un departamento</option>
                                         <?php
@@ -142,7 +142,7 @@ include_once "includes/header.php";
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="departamento" class="form-label">Buscar Municipio</label>
+                                    <label for="departamento" class="text-success font-weight-bold">Buscar Municipio</label>
                                     <select name="departamento" id="departamento" class="form-control">
                                         <option value="">Seleccione un Municipio</option>
                                         <?php
@@ -164,25 +164,25 @@ include_once "includes/header.php";
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="nombre_parentesco" class="text-dark font-weight-bold">Nombre Parentesco</label>
+                                    <label for="nombre_parentesco" class="text-success font-weight-bold">Nombre Parentesco</label>
                                     <input type="text" placeholder="Ingrese Nombre Parentesco" name="parentesco[0][nombre]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="relacion_parentesco" class="text-dark font-weight-bold">Relación Parentesco</label>
+                                    <label for="relacion_parentesco" class="text-success font-weight-bold">Relación Parentesco</label>
                                     <input type="text" placeholder="Ingrese Relación Parentesco" name="parentesco[0][relacion]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="edad_parentesco" class="text-dark font-weight-bold">Edad Parentesco</label>
+                                    <label for="edad_parentesco" class="text-success font-weight-bold">Edad Parentesco</label>
                                     <input type="text" placeholder="Ingrese Edad Parentesco" name="parentesco[0][edad]" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="direccion_parentesco" class="text-dark font-weight-bold">Dirección Parentesco</label>
+                                    <label for="direccion_parentesco" class="text-success font-weight-bold">Dirección Parentesco</label>
                                     <input type="text" placeholder="Ingrese Dirección Parentesco" name="parentesco[0][direccion]" class="form-control">
                                 </div>
                             </div>
@@ -221,11 +221,11 @@ include_once "includes/header.php";
                             $direccion_parentesco = $data_parentesco['direccion'];
                         ?>
                             <tr>
-                                <td><?php echo $id_parentesco; ?></td>
-                                <td><?php echo $nombre_parentesco; ?></td>
-                                <td><?php echo $relacion_parentesco; ?></td>
-                                <td><?php echo $edad_parentesco; ?></td>
-                                <td><?php echo $direccion_parentesco; ?></td>
+                                <td class="table-primary"><?php echo $id_parentesco; ?></td>
+                                <td class="table-secondary"><?php echo $nombre_parentesco; ?></td>
+                                <td class="table-success"><?php echo $relacion_parentesco; ?></td>
+                                <td class="table-danger"><?php echo $edad_parentesco; ?></td>
+                                <td class="table-warning"><?php echo $direccion_parentesco; ?></td>
                             </tr>
                         <?php
                         }
@@ -261,7 +261,7 @@ include_once "includes/header.php";
                                 $cliente_id = $data['idcliente'];
                         ?>
                                 <tr>
-                                    <td><?php echo $cliente_id; ?></td>
+                                    <td class="table-primary"><?php echo $cliente_id; ?></td>
                                     <td><?php echo $data['nombre']; ?></td>
                                     <td><?php echo $data['apellido']; ?></td>
                                     <td><?php echo $data['cedula']; ?></td>

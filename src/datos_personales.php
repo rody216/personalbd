@@ -119,13 +119,13 @@ include_once "includes/header.php";
                         <br><br>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="documento_de_identidad" class="text-dark font-weight-bold">Documento de Identidad</label>
+                                <label for="documento_de_identidad" class="text-success font-weight-bold">Documento de Identidad</label>
                                 <input type="text" placeholder="Ingrese Documento de Identidad" name="documento_de_identidad" id="documento_de_identidad" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="tipo_de_documento" class="text-dark font-weight-bold">Tipo de Documento</label>
+                                <label for="tipo_de_documento" class="text-success font-weight-bold">Tipo de Documento</label>
                                 <select name="tipo_de_documento" id="tipo_de_documento" class="form-control">
                                     <option value="">Seleccione Documento</option>
                                     <option value="cedula">Cedula</option>
@@ -139,7 +139,7 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="fecha_de_expedicion" class="text-dark font-weight-bold">Fecha de Expedición</label>
+                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Fecha de Expedición</label>
                                 <div class="input-group date">
                                     <input type="text" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Seleccione una fecha" readonly>
                                     <div class="input-group-append">
@@ -163,25 +163,25 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="nombre" class="text-dark font-weight-bold">Nombre</label>
+                                <label for="nombre" class="text-success font-weight-bold">Nombre</label>
                                 <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="segundo_nombre" class="text-dark font-weight-bold">Segundo Nombre</label>
+                                <label for="segundo_nombre" class="text-success font-weight-bold">Segundo Nombre</label>
                                 <input type="text" placeholder="Ingrese Segundo Nombre" name="segundo_nombre" id="segundo_nombre" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="apellido" class="text-dark font-weight-bold">Apellido</label>
+                                <label for="apellido" class="text-success font-weight-bold">Apellido</label>
                                 <input type="text" placeholder="Ingrese Apellido" name="apellido" id="apellido" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="fecha_de_nacimiento" class="text-dark font-weight-bold">Fecha de Nacimiento</label>
+                                <label for="fecha_de_nacimiento" class="text-success font-weight-bold">Fecha de Nacimiento</label>
                                 <div class="input-group date">
                                     <input type="text" class="form-control" name="fecha_de_nacimiento" id="fecha_de_nacimiento" placeholder="Seleccione una fecha" readonly>
                                     <div class="input-group-append">
@@ -204,7 +204,7 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="grupo_sanguinio" class="text-dark font-weight-bold">Grupo Sanguíneo</label>
+                                <label for="grupo_sanguinio" class="text-success font-weight-bold">Grupo Sanguíneo</label>
                                 <select name="grupo_sanguinio" id="grupo_sanguinio" class="form-control">
                                     <option value="">Seleccione una opción</option>
                                     <option value="A+">A+</option>
@@ -222,13 +222,13 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="factor_RH" class="text-dark font-weight-bold">Factor RH</label>
+                                <label for="factor_RH" class="text-success font-weight-bold">Factor RH</label>
                                 <input type="text" placeholder="Ingrese Factor RH" name="factor_RH" id="factor_RH" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="eps" class="text-dark font-weight-bold">EPS</label>
+                                <label for="eps" class="text-success font-weight-bold">EPS</label>
                                 <select name="eps" id="eps" class="form-control">
                                     <option value="">Seleccione una opción</option>
                                     <option value="EPS Sura">EPS Sura</option>
@@ -244,7 +244,7 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="arl" class="text-dark font-weight-bold">ARL</label>
+                                <label for="arl" class="text-success font-weight-bold">ARL</label>
                                 <select name="arl" id="arl" class="form-control">
                                     <option value="">Seleccione una opción</option>
                                     <option value="Axa Colpatria">Axa Colpatria</option>
@@ -269,25 +269,43 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="ccf" class="text-dark font-weight-bold">CCF</label>
+                                <label for="ccf" class="text-success font-weight-bold">CCF</label>
                                 <input type="text" placeholder="Ingrese CCF" name="ccf" id="ccf" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="pais_de_residencia" class="text-dark font-weight-bold">País de Residencia</label>
-                                <input type="text" placeholder="Ingrese País de Residencia" name="pais_de_residencia" id="pais_de_residencia" class="form-control">
+                                <label for="pais_de_residencia" class="text-success font-weight-bold">País de Residencia</label>
+                                <select name="pais" id="pais" class="form-control">
+                                    <option value="">Seleccione un Pais</option>
+                                    <?php
+                                    include "../conexion.php";
+                                    $query = mysqli_query($conexion, "SELECT * FROM pais");
+                                    while ($row = mysqli_fetch_assoc($query)) {
+                                        echo '<option value="' . $row['nombre'] . '">' . $row['nombre'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="departamento" class="text-dark font-weight-bold">Departamento</label>
-                                <input type="text" placeholder="Ingrese Departamento" name="departamento" id="departamento" class="form-control">
+                                <label for="departamento" class="text-success font-weight-bold">Departamento</label>
+                                <select name="departamento" id="departamento" class="form-control">
+                                    <option value="">Seleccione un departamento</option>
+                                    <?php
+                                    include "../conexion.php";
+                                    $query = mysqli_query($conexion, "SELECT * FROM departamentos");
+                                    while ($row = mysqli_fetch_assoc($query)) {
+                                        echo '<option value="' . $row['nombre_departamento'] . '">' . $row['nombre_departamento'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="estado_civil" class="text-dark font-weight-bold">Estado Civil</label>
+                                <label for="estado_civil" class="text-success font-weight-bold">Estado Civil</label>
                                 <select name="estado_civil" id="estado_civil" class="form-control">
                                     <option value="">Seleccione una opción</option>
                                     <option value="Soltero">Soltero</option>
@@ -300,104 +318,104 @@ include_once "includes/header.php";
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="telefono" class="text-dark font-weight-bold">Teléfono</label>
+                                <label for="telefono" class="text-success font-weight-bold">Teléfono</label>
                                 <input type="text" placeholder="Ingrese Teléfono" name="telefono" id="telefono" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="celular" class="text-dark font-weight-bold">Celular</label>
+                                <label for="celular" class="text-success font-weight-bold">Celular</label>
                                 <input type="text" placeholder="Ingrese Celular" name="celular" id="celular" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="email" class="text-dark font-weight-bold">Email</label>
+                            <label for="email"  class="text-success font-weight-bold">Email</label>
                                 <input type="email" placeholder="Ingrese Email" name="email" id="email" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="imagen" class="text-dark font-weight-bold">Imagen</label>
-                                <input type="file" name="imagen" id="imagen" class="form-control">
-                            </div>
+                            <label for="imagen" class="text-success font-weight-bold">Subir Imagen</label>
+                            <input type="file" name="imagen" id="imagen" class="form-control" />
                         </div>
                     </div>
-                </form>
+               </div>
+            </form>
+        </div>
+        <br /><br />
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th class="text-success">ID</th>
+                            <th><span class="text-primary">Documento de Identidad</span></th>
+                            <th><span class="text-success">Tipo de Documento</span></th>
+                            <th><span class="text-danger">Fecha de Expedición</span></th>
+                            <th><span class="text-warning">Nombre</span></th>
+                            <th><span class="text-info">Segundo Nombre</span></th>
+                            <th><span class="text-success">Apellido</span></th>
+                            <th><span class="text-primary">Fecha de Nacimiento</span></th>
+                            <th><span class="text-secondary">Grupo Sanguíneo</span></th>
+                            <th><span class="text-success">Factor RH</span></th>
+                            <th><span class="text-danger">EPS</span></th>
+                            <th><span class="text-warning">ARL</span></th>
+                            <th><span class="text-info">CCF</span></th>
+                            <th><span class="text-warning">Pais de Residencia</span></th>
+                            <th><span class="text-primary">Departamento</span></th>
+                            <th><span class="text-secondary">Estado Civil</span></th>
+                            <th><span class="text-success">Teléfono</span></th>
+                            <th><span class="text-danger">Celular</span></th>
+                            <th><span class="text-warning">Email</span></th>
+                            <th><span class="text-info">Imagen</span></th>
+                            <th><span class="text-success">Acciones</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include "../conexion.php";
+
+                        $query = mysqli_query($conexion, "SELECT * FROM personal");
+                        $result = mysqli_num_rows($query);
+                        if ($result > 0) {
+                            while ($data = mysqli_fetch_assoc($query)) { ?>
+                                <tr>
+                                    <td><span class="text-success"><?php echo $data['id']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['documento_de_identidad']; ?></span></td>
+                                    <td><span class="text-success"><?php echo $data['tipo_de_documento']; ?></span></td>
+                                    <td><span class="text-danger"><?php echo $data['fecha_de_expedicion']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>
+                                    <td><span class="text-info"><?php echo $data['segundo_nombre']; ?></span></td>
+                                    <td><span class="text-success"><?php echo $data['apellido']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['fecha_de_nacimiento']; ?></span></td>
+                                    <td><span class="text-secondary"><?php echo $data['grupo_sanguinio']; ?></span></td>
+                                    <td><span class="text-success"><?php echo $data['factor_RH']; ?></span></td>
+                                    <td><span class="text-danger"><?php echo $data['eps']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['arl']; ?></span></td>
+                                    <td><span class="text-info"><?php echo $data['ccf']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['pais_de_residencia']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['departamento']; ?></span></td>
+                                    <td><span class="text-secondary"><?php echo $data['estado_civil']; ?></span></td>
+                                    <td><span class="text-success"><?php echo $data['telefono']; ?></span></td>
+                                    <td><span class="text-danger"><?php echo $data['celular']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['email']; ?></span></td>
+                                    <td><span class="text-info"><?php echo $data['imagen']; ?></span></td>
+
+
+                                    <td>
+                                        <a href="#" onclick="editarCliente(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                        <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
+                                            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th class="bg-primary text-white">#</th>
-                                <th><span class="text-primary">Documento de Identidad</span></th>
-                                <th><span class="text-success">Tipo de Documento</span></th>
-                                <th><span class="text-danger">Fecha de Expedición</span></th>
-                                <th><span class="text-warning">Nombre</span></th>
-                                <th><span class="text-info">Segundo Nombre</span></th>
-                                <th><span class="text-success">Apellido</span></th>
-                                <th><span class="text-primary">Fecha de Nacimiento</span></th>
-                                <th><span class="text-secondary">Grupo Sanguíneo</span></th>
-                                <th><span class="text-success">Factor RH</span></th>
-                                <th><span class="text-danger">EPS</span></th>
-                                <th><span class="text-warning">ARL</span></th>
-                                <th><span class="text-info">CCF</span></th>
-                                <th><span class="text-warning">Pais de Residencia</span></th>
-                                <th><span class="text-primary">Departamento</span></th>
-                                <th><span class="text-secondary">Estado Civil</span></th>
-                                <th><span class="text-success">Teléfono</span></th>
-                                <th><span class="text-danger">Celular</span></th>
-                                <th><span class="text-warning">Email</span></th>
-                                <th><span class="text-info">Imagen</span></th>
-                                <th><span class="text-success">Acciones</span></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            include "../conexion.php";
-
-                            $query = mysqli_query($conexion, "SELECT * FROM personal");
-                            $result = mysqli_num_rows($query);
-                            if ($result > 0) {
-                                while ($data = mysqli_fetch_assoc($query)) { ?>
-                                    <tr>
-                                        <td><span class="text-success"><?php echo $data['id']; ?></span></td>
-                                        <td><span class="text-primary"><?php echo $data['documento_de_identidad']; ?></span></td>
-                                        <td><span class="text-success"><?php echo $data['tipo_de_documento']; ?></span></td>
-                                        <td><span class="text-danger"><?php echo $data['fecha_de_expedicion']; ?></span></td>
-                                        <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>
-                                        <td><span class="text-info"><?php echo $data['segundo_nombre']; ?></span></td>
-                                        <td><span class="text-dark"><?php echo $data['apellido']; ?></span></td>
-                                        <td><span class="text-primary"><?php echo $data['fecha_de_nacimiento']; ?></span></td>
-                                        <td><span class="text-secondary"><?php echo $data['grupo_sanguinio']; ?></span></td>
-                                        <td><span class="text-success"><?php echo $data['factor_RH']; ?></span></td>
-                                        <td><span class="text-danger"><?php echo $data['eps']; ?></span></td>
-                                        <td><span class="text-warning"><?php echo $data['arl']; ?></span></td>
-                                        <td><span class="text-info"><?php echo $data['ccf']; ?></span></td>
-                                        <td><span class="text-dark"><?php echo $data['pais_de_residencia']; ?></span></td>
-                                        <td><span class="text-primary"><?php echo $data['departamento']; ?></span></td>
-                                        <td><span class="text-secondary"><?php echo $data['estado_civil']; ?></span></td>
-                                        <td><span class="text-success"><?php echo $data['telefono']; ?></span></td>
-                                        <td><span class="text-danger"><?php echo $data['celular']; ?></span></td>
-                                        <td><span class="text-warning"><?php echo $data['email']; ?></span></td>
-                                        <td><span class="text-info"><?php echo $data['imagen']; ?></span></td>
-
-
-                                        <td>
-                                            <a href="#" onclick="editarCliente(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
-                                            <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
-                                                <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                            <?php }
-                            } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        </div>
 
 
 
-            <?php include_once "includes/footer.php"; ?>
+        <?php include_once "includes/footer.php"; ?>

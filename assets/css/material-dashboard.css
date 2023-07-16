@@ -9386,12 +9386,12 @@ a.text-light:focus {
 }
 
 .text-dark {
-  color: #343a40 !important;
+  color: #9c27b0!important;
 }
 
 a.text-dark:hover,
 a.text-dark:focus {
-  color: #1d2124 !important;
+  color: #9c27b0!important;
 }
 
 .text-muted,
@@ -16844,7 +16844,9 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .table thead tr th {
-  font-size: 1.063rem;
+  font-size: 1em !important;
+  align-items: center;
+  text-align: center !important;
 }
 
 .table .th-description {
@@ -17684,6 +17686,7 @@ html[dir="rtl"] .form-check .form-check-sign .check:before {
 
 .card .table tr:first-child td {
   border-top: none;
+  text-align: center !important;
 }
 
 .card .card-title {
