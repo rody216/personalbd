@@ -17,6 +17,18 @@ if (empty($_SESSION['active'])) {
     <link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="../assets/js/jquery-ui/jquery-ui.min.css">
     <script src="../assets/js/all.min.js" crossorigin="anonymous"></script>
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- CSS de Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- JS de jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- JS de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- JS de Bootstrap Datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
 </head>
 
 <body>
@@ -67,6 +79,12 @@ if (empty($_SESSION['active'])) {
                         <a class="nav-link d-flex" href="lista_ventas.php">
                             <i class="fas fa-cart-plus mr-2 fa-2x"></i>
                             <p> Historial Ventas</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="datos_personales.php">
+                            <i class="fas fa-cart-plus mr-2 fa-2x"></i>
+                            <p>Datos Personales</p>
                         </a>
                     </li>
                 </ul>

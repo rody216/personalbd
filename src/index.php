@@ -52,7 +52,6 @@ include_once "includes/header.php";
                 </div>
                 <a href="productos.php" class="card-category text-danger font-weight-bold">
                     Registro Familiar
-
                 </a>
                 <h3 class="card-title"><?php echo $total['productos']; ?></h3>
             </div>
@@ -77,11 +76,12 @@ include_once "includes/header.php";
     </div>
 
     <div class="col-lg-6">
-        <div class="card">
-            <div class="card-header card-header-primary">
-                <h3 class="title-2 m-b-40">Empleados Registro <?php echo $total['clientes']; ?></h3>
-            </div>
-            <div class="card-body">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h3 class="title-2 m-b-40">Empleados Registro <?php echo $total['clientes']; ?></h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive"> <!-- Agregar clase table-responsive -->
                 <table class="table table-striped table-bordered" id="tbl">
                     <thead class="thead-dark">
                         <tr>
@@ -123,46 +123,46 @@ include_once "includes/header.php";
             </div>
         </div>
     </div>
+</div>
+
+
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="title-2 m-b-40">Usuarios <?php echo $total['usuarios']; ?></h3>
             </div>
             <div class="card-body">
-                 <table class="table table-hover table-striped table-bordered mt-2" id="tbl">
-        <thead class="thead-dark">
-            <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Usuario</th>
-                <th>Rol</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $query = mysqli_query($conexion, "SELECT * FROM usuario");
-            $result = mysqli_num_rows($query);
-            if ($result > 0) {
-                while ($data = mysqli_fetch_assoc($query)) { ?>
-                    <tr>
-
-                        <td><?php echo $data['idusuario']; ?></td>
-                        <td><?php echo $data['nombre']; ?></td>
-                        <td><?php echo $data['correo']; ?></td>
-                        <td><?php echo $data['usuario']; ?></td>
-                        <td>
-                        </td>
-                    </tr>
-            <?php }
-            } ?>
-        </tbody>
-    </table>
+            <div class="table-responsive"> <!-- Agregar clase table-responsive -->
+                <table class="table table-hover table-striped table-bordered mt-2" id="tbl">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Usuario</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $query = mysqli_query($conexion, "SELECT * FROM usuario");
+                        $result = mysqli_num_rows($query);
+                        if ($result > 0) {
+                            while ($data = mysqli_fetch_assoc($query)) { ?>
+                                <tr>
+                                    <td><?php echo $data['idusuario']; ?></td>
+                                    <td><?php echo $data['nombre']; ?></td>
+                                    <td><?php echo $data['correo']; ?></td>
+                                    <td><?php echo $data['usuario']; ?></td>
+                                    <td></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <?php include_once "includes/footer.php"; ?>

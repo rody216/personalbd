@@ -294,6 +294,40 @@ VALUES
     (107, 'Puerto Carreño', 'Vichada', 'Colombia');
 
 -- --------------------------------------------------------
+--
+-- Crear tabla personal
+CREATE TABLE personal (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    documento_de_identidad INT,
+    tipo_de_documento VARCHAR(50),
+    imagen BLOB,
+    fecha_de_expedicion DATE,
+    nombre VARCHAR(50),
+    segundo_nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    fecha_de_nacimiento DATE,
+    lugar_de_nacimiento VARCHAR(50),
+    grupo_sanguinio VARCHAR(10),
+    factor_RH VARCHAR(10),
+    eps VARCHAR(50),
+    arl VARCHAR(50),
+    fondo_de_pensiones VARCHAR(50),
+    fondo_cesantias VARCHAR(50),
+    ccf VARCHAR(50),
+    pais_de_residencia VARCHAR(50),
+    departamento VARCHAR(50),
+    municipio VARCHAR(50),
+    direccion VARCHAR(100),
+    estado_civil VARCHAR(50),
+    telefono VARCHAR(20),
+    celular VARCHAR(20),
+    email VARCHAR(100)
+);
+
+-- Insertar informacion
+INSERT INTO personal (documento_de_identidad, tipo_de_documento, imagen, fecha_de_expedicion, nombre, segundo_nombre, apellido, fecha_de_nacimiento, lugar_de_nacimiento, grupo_sanguinio, factor_RH, eps, arl, fondo_de_pensiones, fondo_cesantias, ccf, pais_de_residencia, departamento, municipio, direccion, estado_civil, telefono, celular, email)
+VALUES (123456789, 'Cédula', 'ruta/imagen.jpg', '2022-01-01', 'Juan', 'Pablo', 'González', '1990-05-15', 'Bogotá', 'O+', 'Positivo', 'EPS001', 'ARL001', 'FondoPensiones001', 'FondoCesantias001', 'CCF001', 'Colombia', 'Cundinamarca', 'Bogotá', 'Calle 123', 'Soltero', '1234567', '987654321', 'juan@example.com');
+
 
 --
 -- Estructura de tabla para la tabla `detalle_permisos`
