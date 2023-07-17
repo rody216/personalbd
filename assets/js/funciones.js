@@ -541,3 +541,42 @@ function limpiar() {
     $('#id').val('');
     $('#btnAccion').val('Registrar');
 }
+
+function editarPersonal(id) {
+    const action = "editarPersonal";
+    $.ajax({
+        url: 'ajax.php',
+        type: 'GET',
+        async: true,
+        data: {
+            editarPersonal: action,
+            id: id
+        },
+        success: function (response) {
+            const datos = JSON.parse(response);
+            $('#documento_de_identidad').val(datos.documento_de_identidad);
+            $('#tipo_de_documento').val(datos.tipo_de_documento);
+            $('#fecha_de_expedicion').val(datos.fecha_de_expedicion);
+            $('#nombre').val(datos.nombre);
+            $('#segundo_nombre').val(datos.segundo_nombre);
+            $('#apellido').val(datos.apellido);
+            $('#fecha_de_nacimiento').val(datos.fecha_de_nacimiento);
+            $('#grupo_sanguinio').val(datos.grupo_sanguinio);
+            $('#factor_RH').val(datos.factor_RH);
+            $('#eps').val(datos.eps);
+            $('#arl').val(datos.arl);
+            $('#pais_de_residencia').val(datos.pais_de_residencia);
+            $('#departamento').val(datos.departamento);
+            $('#estado_civil').val(datos.estado_civil);
+            $('#telefono').val(datos.telefono);
+            $('#celular').val(datos.celular);
+            $('#email').val(datos.email);
+            $('#imagen').val(datos.imagen);
+            $('#btnAccion').val('Modificar');
+        },
+        error: function (error) {
+            console.log(error);
+
+        }
+    });
+}
