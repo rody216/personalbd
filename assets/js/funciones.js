@@ -473,9 +473,13 @@ function editarCliente(id) {
         success: function (response) {
             const datos = JSON.parse(response);
             $('#nombre').val(datos.nombre);
-            $('#telefono').val(datos.telefono);
+            $('#apellido').val(datos.apellido);
+            $('#cedula').val(datos.cedula);
+            $('#celular').val(datos.celular);
+            $('#pais').val(datos.pais);
             $('#direccion').val(datos.direccion);
-            $('#id').val(datos.idcliente);
+            $('#foto').val(datos.foto);
+            $('#grupo_sangre').val(datos.grupo_sangre);
             $('#btnAccion').val('Modificar');
         },
         error: function (error) {

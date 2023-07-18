@@ -18,7 +18,7 @@ if (isset($_GET['alert'])) {
 
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['cedula']) || empty($_POST['celular']) || empty($_POST['pais']) || empty($_POST['direccion']) || empty($_POST['foto']) || empty($_POST['grupo_sangre'])) {
+    if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['cedula']) || empty($_POST['celular']) || empty($_POST['pais']) || empty($_POST['direccion']) || empty($_FILES['foto']['name']) || empty($_POST['grupo_sangre'])) {
         $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
                         Todos los campos son obligatorios
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -32,9 +32,21 @@ if (!empty($_POST)) {
         $celular = $_POST['celular'];
         $pais = $_POST['pais'];
         $direccion = $_POST['direccion'];
-        $foto = $_POST['foto'];
+        $foto = $_FILES['foto']['name'];
         $grupo_sangre = $_POST['grupo_sangre'];
         $result = 0;
+        // Verificar si se subió una imagen
+        $path = "/assets/img/data/" . basename($_FILES['imagen']['name']);
+
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
+            echo "El archivo " .  basename($_FILES['imagen']['name']) . " ha sido subido";
+        } else {
+            echo "El archivo no se ha subido correctamente";
+            // Establecer una imagen por defecto si no se subió ninguna
+            $image_path = '/assets/img/logo.png';
+        }
+
+
         if (empty($id)) {
             $query = mysqli_query($conexion, "SELECT * FROM cliente WHERE nombre = '$nombre'");
             $result = mysqli_fetch_array($query);
@@ -46,7 +58,7 @@ if (!empty($_POST)) {
                         </button>
                     </div>';
             } else {
-                $query_insert = mysqli_query($conexion, "INSERT INTO cliente (nombre, apellido, cedula, celular, pais, direccion, foto, grupo_sangre) VALUES ('$nombre', '$apellido', '$cedula', '$celular', '$pais', '$direccion', '$foto', '$grupo_sangre')");
+                $query_insert = mysqli_query($conexion, "INSERT INTO cliente (nombre, apellido, cedula, celular, pais, direccion, foto, grupo_sangre) VALUES ('$nombre', '$apellido', '$cedula', '$celular', '$pais', '$direccion', '$ruta$foto', '$grupo_sangre')");
                 if ($query_insert) {
                     $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         Cliente registrado
@@ -64,7 +76,7 @@ if (!empty($_POST)) {
                 }
             }
         } else {
-            $sql_update = mysqli_query($conexion, "UPDATE cliente SET nombre = '$nombre', apellido = '$apellido', cedula = '$cedula', celular = '$celular', pais = '$pais', direccion = '$direccion', foto = '$foto', grupo_sangre = '$grupo_sangre' WHERE idcliente = $id");
+            $sql_update = mysqli_query($conexion, "UPDATE cliente SET nombre = '$nombre', apellido = '$apellido', cedula = '$cedula', celular = '$celular', pais = '$pais', direccion = '$direccion', foto = '$ruta$foto', grupo_sangre = '$grupo_sangre' WHERE idcliente = $id");
             if ($sql_update) {
                 $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         Cliente modificado
@@ -134,11 +146,10 @@ include_once "includes/header.php";
                                 <input type="text" placeholder="Ingrese Dirección" name="direccion" id="direccion" class="form-control">
                             </div>
                         </div>
+                        <!-- *IMAGEN* -->
                         <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="foto" class="text-dark font-weight-bold">Imagen</label>
-                                <input type="file"  name="foto" id="foto" class="form-control">
-                            </div>
+                            <label for="imagen" class="text-dark font-weight-bold">Subir Imagen</label>
+                            <input type="file" name="imagen" id="imagen" class="form-control" />
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
