@@ -341,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `detalle_permisos` (
   PRIMARY KEY (`id`),
   KEY `id_permiso` (`id_permiso`),
   KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `detalle_permisos`
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `detalle_venta` (
   PRIMARY KEY (`id`),
   KEY `id_producto` (`id_producto`),
   KEY `id_venta` (`id_venta`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -435,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `permisos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -517,7 +517,7 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`),
   KEY `id_cliente` (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 --
 -- Restricciones para tablas volcadas

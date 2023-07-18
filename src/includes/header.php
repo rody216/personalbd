@@ -34,9 +34,15 @@ if (empty($_SESSION['active'])) {
 <body>
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+        <style>
+    .logo img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
             <div class="logo"><a href="./" class="simple-text logo-normal">
-                    BLI - NP
-                </a></div>
+        <img src="../assets/img/icon.png" alt="Logo de BLI - NP">
+    </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item">
@@ -60,7 +66,7 @@ if (empty($_SESSION['active'])) {
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="parentesco.php">
                             <i class="fab fa-product-hunt mr-2 fa-2x"></i>
-                            <p>Parentenco</p>
+                            <p>Parentesco</p>
                         </a>
                     </li>
                     <li class="nav-item">
