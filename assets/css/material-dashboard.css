@@ -5808,6 +5808,7 @@ button.close {
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+  margin-left: 35%;
 }
 
 .modal-body {
@@ -6399,7 +6400,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #2196f3 !important;
+  background-color: #9C27B0 !important;
 }
 
 a.bg-primary:hover,
@@ -17018,7 +17019,7 @@ a .material-icons {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: #4caf50;
   font-weight: 400;
 }
 
