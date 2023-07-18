@@ -42,7 +42,7 @@ if (empty($_SESSION['active'])) {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="familia.php">
-                            <i class="fa fa-graduation-cap mr-2 fa-2x"></i>
+                            <i class="fa fa fa-users mr-2 fa-2x"></i>
                             <p>Familiar</p>
                         </a>
                     </li>                   
