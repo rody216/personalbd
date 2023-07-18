@@ -102,9 +102,8 @@ mysqli_close($conexion);
 include_once "includes/header.php";
 
 ?>
-<h2 class="text-center" style="color: #9C27B0;">Bienvenido</h2>
-<h3 class="text-center">DATOS JURIDICOS
-</h3>
+<h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
+<h3 class="text-center">ICTH</h3>
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -112,83 +111,38 @@ include_once "includes/header.php";
                 <?php echo (isset($alert)) ? $alert : ''; ?>
                 <form action="" method="post" autocomplete="on" id="formulario" enctype="multipart/form-data">
                     <div class="row">
+                        <!-- Tipo de Examen* -->
+                        <div>
+                            <input type="search" id="mySearch" name="q" placeholder="Documento de Identidad" size="30" />
+                            <button>Buscar</button>
+                        </div>
+                        <!-- *IMAGEN* -->
+                        <div class="col-md-3">
+                            <input type="file" name="imagen" id="imagen" class="form-control" />
+                            <label for="imagen" class="text-success font-weight-bold">Subir Imagen</label>
+                        </div>
                         <!-- BOTONES DE VALIDACION * -->
                         <div>
                             <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
                             <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
                         </div>
-                        <!-- DOCUMENTO DE IDENTIDAD * -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="documento_de_identidad" class="text-success font-weight-bold">Ingrese Documento de Identidad</label>
-                                <input type="number" placeholder="Ingresar Documento" name="documento_de_identidad" id="documento_de_identidad" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Numero de Noticias</label>
-                                <div class="input-group date">
-                                    <input type="number"  placeholder="Ingresar" name="documento_de_identidad id="documento_de_identidad" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- *CALIDAD* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Calidad</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Ingresar la Expedición">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- *DELITOS* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Delitos</label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Ingresar la Expedición">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- *FECHA DE REALIZACION* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Fecha Hechos</label>
-                                <div class="input-group date">
-                                    <input type="date" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Ingresar la Expedición">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- *ARCHIVO* -->
-                        <div class="col-md-3">
-                            <label for="archivo" class="text-success font-weight-bold">Ampliacion Hechos</label>
-                            <input input type="text" name="archivo" id="archivo" class="form-control" multiple />
-                        </div>
-                        <!-- *IMAGEN* -->
-                        <div class="col-md-3">
-                            <label for="imagen" class="text-success font-weight-bold">Subir Imagen</label>
-                            <input type="file" name="imagen" id="imagen" class="form-control" />
-                        </div>
-
                     </div>
                 </form>
             </div>
         </div>
         <br /><br />
+        <!--
         <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
                             <th class="text-success">ID</th>
-                            <th><span class="text-primary">Documento</span></th>
-                            <th><span class="text-success">Numero de Noticias</span></th>
-                            <th><span class="text-danger">Archivo</span></th>
-                            <th><span class="text-success">Calidad</span></th>
-                            <th><span class="text-warning">Delitos</span></th>
-                            <th><span class="text-warning">Fecha</span></th>
-                            <th><span class="text-warning">Imagen</span></th>
-                            <th><span class="text-warning">Acciones</span></th>
+                            <th><span class="text-primary">Tipo de Examen</span></th>
+                            <th><span class="text-success">Fecha de Realizacion</span></th>
+                            <th><span class="text-danger">Subir Archivo</span></th>
+                            <th><span class="text-info">Imagen</span></th>
+                            <th><span class="text-success">Acciones</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -201,12 +155,9 @@ include_once "includes/header.php";
                             while ($data = mysqli_fetch_assoc($query)) { ?>
                                 <tr>
                                     <td><span class="text-success"><?php echo $data['id']; ?></span></td>
-                                    <td><span class="text-primary"><?php echo $data['documento_de_identidad']; ?></span></td>
-                                    <td><span class="text-success"><?php echo $data['apellido']; ?></span></td>
-                                    <td><span class="text-primary"><?php echo $data['fecha_de_nacimiento']; ?></span></td>
-                                    <td><span class="text-info"><?php echo $data['segundo_nombre']; ?></span></td>
-                                    <td><span class="text-info"><?php echo $data['segundo_nombre']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>
                                     <td><span class="text-danger"><?php echo $data['fecha_de_expedicion']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['fecha_de_nacimiento']; ?></span></td>
                                     <td class="text-center"><img src="/assets/img/data/<?php echo $data['imagen']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
                                     <td>
                                         <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
@@ -219,6 +170,7 @@ include_once "includes/header.php";
                         } ?>
                     </tbody>
                 </table>
+                    -->
             </div>
         </div>
     </div>

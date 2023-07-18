@@ -110,148 +110,43 @@ include_once "includes/header.php";
             <div class="col-md-12">
                 <?php echo (isset($alert)) ? $alert : ''; ?>
                 <form action="" method="post" autocomplete="on" id="formulario" enctype="multipart/form-data">
-                    <div class="row">
-                        <!-- BOTONES DE VALIDACION * -->
-                        <div>
-                            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
-                            <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
-                        </div>
-                        <br><br>
-                        <!-- DOCUMENTO DE IDENTIDAD * -->
+                    <div class="row">                     
+                        <!-- Tipo de Examen* -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="documento_de_identidad" class="text-success font-weight-bold">Documento de Identidad</label>
+                                <label for="documento_de_identidad" class="text-success font-weight-bold">Tipo de Examen</label>
                                 <input type="number" placeholder="Ingresar Documento" name="documento_de_identidad" id="documento_de_identidad" class="form-control">
                             </div>
                         </div>
-                        <!-- *TIPO DE DOCUMENTO* -->
-                        <div class="col-md-3">
+                         <!-- * Fecha de Realizacion * -->
+                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="tipo_de_documento" class="text-success font-weight-bold">Tipo de Documento</label>
-                                <input type="text" class="form-control" name="tipo_de_documento" id="tipo_de_documento" placeholder="Ingresar tipo de documento">
-                           </div>
-                        </div>
-                         <!-- *FECHA DE EXPEDICION* -->
-                        <div class="col-md-3">
+                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Fecha de Realizacion</label>
+                                <div class="input-group date">
+                                    <input type="date" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Ingresar la Expedición">
+                                </div>
+                            </div>
+                        </div>                        
+                         <!-- * Subir Archivo * -->
+                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Fecha de Expedición</label>
+                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Subir Archivo</label>
                                 <div class="input-group date">
                                     <input type="date" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Ingresar la Expedición">
                                 </div>
                             </div>
                         </div>
-                         <!-- *NOMBRE* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="nombre" class="text-success font-weight-bold">Nombre</label>
-                                <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *SEGUNDO NOMBRE* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="segundo_nombre" class="text-success font-weight-bold">Segundo Nombre</label>
-                                <input type="text" placeholder="Ingrese Segundo Nombre" name="segundo_nombre" id="segundo_nombre" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *APELLIDO* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="apellido" class="text-success font-weight-bold">Apellido</label>
-                                <input type="text" placeholder="Ingrese Apellido" name="apellido" id="apellido" class="form-control">
-                            </div>
-                        </div>
-                         <!-- *FECHA DE NACIMIENTO* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="fecha_de_nacimiento" class="text-success font-weight-bold">Fecha de Nacimiento</label>
-                                <div class="input-group date">
-                                    <input type="date" class="form-control" name="fecha_de_nacimiento" id="fecha_de_nacimiento" placeholder="Ingrase la fecha">
-                                </div>
-                            </div>
-                        </div>
-                    <!-- *GRUPO SANGUINIO* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="grupo_sanguinio" class="text-success font-weight-bold">Grupo Sanguíneo</label>
-                                <input type="text" placeholder=" Ingresar Grupo Sanguíneo" name="grupo_sanguinio" id="grupo_sanguinio" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *FACTOR RH* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="factor_RH" class="text-success font-weight-bold">Factor RH</label>
-                                <input type="text" placeholder="Ingresar Factor RH" name="factor_RH" id="factor_RH" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *EPS* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="eps" class="text-success font-weight-bold">EPS</label>
-                                <input type="text" placeholder="Ingresar EPS" name="eps" id="eps" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *ARL* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="arl" class="text-success font-weight-bold">ARL</label>
-                                <input type="text" placeholder=" Ingresar ARL" name="arl" id="arl" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *CCF* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="ccf" class="text-success font-weight-bold">CCF</label>
-                                <input type="text" placeholder="Ingrese CCF" name="ccf" id="ccf" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *PAIS DE RECIDENCIA* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="pais_de_residencia" class="text-success font-weight-bold">País de Residencia</label>
-                                <input type="text" placeholder=" Ingrese País de Residencia" name="pais_de_residencia" id="pais_de_residencia" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *DEPARTAMENTO* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="departamento" class="text-success font-weight-bold">Departamento</label>
-                                <input type="text" placeholder="Ingrese Departamento" name="departamento" id="departamento" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *ESTADO_CIVIL* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="estado_civil" class="text-success font-weight-bold">Estado Civil</label>
-                                <input type="text" placeholder="Ingrese Estado" name="estado_civil" id="estado_civil" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *TELEFONO* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="telefono" class="text-success font-weight-bold">Teléfono</label>
-                                <input type="text" placeholder="Ingrese Teléfono" name="telefono" id="telefono" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *CELULAR* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="celular" class="text-success font-weight-bold">Celular</label>
-                                <input type="text" placeholder="Ingrese Celular" name="celular" id="celular" class="form-control">
-                            </div>
-                        </div>
-                        <!-- *EMAIL* -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="email" class="text-success font-weight-bold">Email</label>
-                                <input type="email" placeholder="Ingrese Email" name="email" id="email" class="form-control">
-                            </div>
-                        </div>
+                         
                         <!-- *IMAGEN* -->
                         <div class="col-md-3">
                             <label for="imagen" class="text-success font-weight-bold">Subir Imagen</label>
                             <input type="file" name="imagen" id="imagen" class="form-control" />
                         </div>
+                           <!-- BOTONES DE VALIDACION * -->
+                           <div>
+                            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
+                            <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+                        </div>                    
                     </div>
                 </form>
             </div>
@@ -263,24 +158,9 @@ include_once "includes/header.php";
                     <thead>
                         <tr>
                             <th class="text-success">ID</th>
-                            <th><span class="text-primary">Documento</span></th>
-                            <th><span class="text-success">Tipo</span></th>
-                            <th><span class="text-danger">Fecha</span></th>
-                            <th><span class="text-warning">Nombre</span></th>
-                            <th><span class="text-info">Segundo</span></th>
-                            <th><span class="text-success">Apellido</span></th>
-                            <th><span class="text-primary">Nacimiento</span></th>
-                            <th><span class="text-secondary">Grupo</span></th>
-                            <th><span class="text-success">RH</span></th>
-                            <th><span class="text-danger">EPS</span></th>
-                            <th><span class="text-warning">ARL</span></th>
-                            <th><span class="text-info">CCF</span></th>
-                            <th><span class="text-warning">País</span></th>
-                            <th><span class="text-primary">Departamento</span></th>
-                            <th><span class="text-secondary">Estado</span></th>
-                            <th><span class="text-success">Teléfono</span></th>
-                            <th><span class="text-danger">Celular</span></th>
-                            <th><span class="text-warning">Email</span></th>
+                            <th><span class="text-primary">Tipo de Examen</span></th>
+                            <th><span class="text-success">Fecha de Realizacion</span></th>
+                            <th><span class="text-danger">Subir Archivo</span></th>                           
                             <th><span class="text-info">Imagen</span></th>
                             <th><span class="text-success">Acciones</span></th>
                         </tr>
@@ -295,24 +175,9 @@ include_once "includes/header.php";
                             while ($data = mysqli_fetch_assoc($query)) { ?>
                                 <tr>
                                     <td><span class="text-success"><?php echo $data['id']; ?></span></td>
-                                    <td><span class="text-primary"><?php echo $data['documento_de_identidad']; ?></span></td>
-                                    <td><span class="text-success"><?php echo $data['tipo_de_documento']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>                                    
                                     <td><span class="text-danger"><?php echo $data['fecha_de_expedicion']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>
-                                    <td><span class="text-info"><?php echo $data['segundo_nombre']; ?></span></td>
-                                    <td><span class="text-success"><?php echo $data['apellido']; ?></span></td>
-                                    <td><span class="text-primary"><?php echo $data['fecha_de_nacimiento']; ?></span></td>
-                                    <td><span class="text-secondary"><?php echo $data['grupo_sanguinio']; ?></span></td>
-                                    <td><span class="text-success"><?php echo $data['factor_RH']; ?></span></td>
-                                    <td><span class="text-danger"><?php echo $data['eps']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['arl']; ?></span></td>
-                                    <td><span class="text-info"><?php echo $data['ccf']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['pais_de_residencia']; ?></span></td>
-                                    <td><span class="text-primary"><?php echo $data['departamento']; ?></span></td>
-                                    <td><span class="text-secondary"><?php echo $data['estado_civil']; ?></span></td>
-                                    <td><span class="text-success"><?php echo $data['telefono']; ?></span></td>
-                                    <td><span class="text-danger"><?php echo $data['celular']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['email']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['fecha_de_nacimiento']; ?></span></td>                                  
                                     <td class="text-center"><img src="/assets/img/data/<?php echo $data['imagen']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
                                     <td>
                                         <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>

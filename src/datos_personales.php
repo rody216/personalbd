@@ -102,8 +102,8 @@ mysqli_close($conexion);
 include_once "includes/header.php";
 
 ?>
-<h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
-<h3 class="text-center">Registro Personal</h3>
+<h2 class="text-center" style="color: #9C27B0;">Bienvenido</h2>
+<h5 class="text-center">Datos Personales</h5>
 <div class="card">
     <div class="card-body">
         <div class="row">

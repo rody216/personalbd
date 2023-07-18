@@ -6,7 +6,6 @@ if (empty($_SESSION['active'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,9 +19,7 @@ if (empty($_SESSION['active'])) {
     <script src="../assets/js/all.min.js" crossorigin="anonymous"></script>
 
 
-
 </head>
-
 <body>
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="">
@@ -44,11 +41,11 @@ if (empty($_SESSION['active'])) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex" href="productos.php">
-                            <i class="fas fa-users mr-2 fa-2x"></i>
-                            <p>Familia</p>
+                        <a class="nav-link d-flex" href="familia.php">
+                            <i class="fa fa-graduation-cap mr-2 fa-2x"></i>
+                            <p>Familiar</p>
                         </a>
-                    </li>
+                    </li>                   
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="formacion.php">
                             <i class="fa fa-graduation-cap mr-2 fa-2x"></i>
@@ -74,7 +71,14 @@ if (empty($_SESSION['active'])) {
                             <p>ICTH</p>
                         </a>
                     </li>
-                    <!--
+                    <!-- no borrar nos serve para orientarnos rodolfo
+                         <li class="nav-item">
+                        <a class="nav-link d-flex" href="productos.php">
+                            <i class="fas fa-users mr-2 fa-2x"></i>
+                            <p>Familia</p>
+                        </a>
+                    </li> 
+                    
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="parentesco.php">
                             <i class="fab fa-product-hunt mr-2 fa-2x"></i>
