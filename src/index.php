@@ -139,7 +139,6 @@ include_once "includes/header.php";
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Correo</th>
-                            <th>Usuario</th>
                             <th>Rol</th>
                         </tr>
                     </thead>

@@ -70,6 +70,8 @@ if (!empty($_POST)) {
 }
 include_once "includes/header.php";
 ?>
+<h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
+<h3 class="text-center">Registro Familiar</h3>
 <div class="card shadow-lg">
     <div class="card-body">
         <div class="row">

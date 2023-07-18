@@ -25,9 +25,9 @@ if (empty($_SESSION['active'])) {
 
 <body>
     <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
-            <div class="logo"><a href="/assets/img/logo.png" class="simple-text logo-normal">
-                    BLI - NP
+        <div class="sidebar" data-color="purple" data-background-color="black" data-image="">
+            <div class="logo"><a href="./" class="simple-text logo-normal">
+                    <img src="../assets/img/logo.png" alt="" width="50%">
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
@@ -50,26 +50,26 @@ if (empty($_SESSION['active'])) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex" href="datos_personales.php">
+                        <a class="nav-link d-flex" href="formacion.php">
                             <i class="fa fa-graduation-cap mr-2 fa-2x"></i>
                             <p>Formación</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex" href="datos_personales.php">
+                        <a class="nav-link d-flex" href="finanzas.php">
                             <i class="fa fa-credit-card mr-2 fa-2x"></i>
                             <p>Finanzas</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex" href="datos_personales.php">
+                        <a class="nav-link d-flex" href="antecedentes.php">
                             <i class="fa fa-file mr-2 fa-2x"></i>
-                            
+
                             <p>Antecendentes</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex" href="datos_personales.php">
+                        <a class="nav-link d-flex" href="icth.php">
                             <i class="fab fa-itch-io mr-2 fa-2x"></i>
                             <p>ICTH</p>
                         </a>
@@ -117,8 +117,7 @@ if (empty($_SESSION['active'])) {
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top bg-dark">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-
-                        <a class="navbar-brand" href="../login_usuarios.php">Datos de los Usuarios</a>
+                        <a class="navbar-brand" href="#">BLI-NP</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>

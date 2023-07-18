@@ -20,8 +20,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--background1);
-	
+    background-image: url(../img/gray-green-background-with-light-blue-background\ .jpg);
+	background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container{

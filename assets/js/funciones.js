@@ -568,6 +568,7 @@ function editarPersonal(id) {
             $('#grupo_sanguinio').val(datos.grupo_sanguinio);
             $('#factor_RH').val(datos.factor_RH);
             $('#eps').val(datos.eps);
+            $('#ccf').val(datos.ccf);
             $('#arl').val(datos.arl);
             $('#pais_de_residencia').val(datos.pais_de_residencia);
             $('#departamento').val(datos.departamento);
