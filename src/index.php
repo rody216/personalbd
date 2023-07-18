@@ -50,7 +50,7 @@ include_once "includes/header.php";
                 <div class="card-icon">
                     <i class="fab fa-product-hunt fa-2x"></i>
                 </div>
-                <a href="productos.php" class="card-category text-danger font-weight-bold">
+                <a href="familia.php" class="card-category text-danger font-weight-bold">
                     Registro Familiar
                 </a>
                 <h3 class="card-title"><?php echo $total['productos']; ?></h3>

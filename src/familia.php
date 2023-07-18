@@ -103,7 +103,7 @@ include_once "includes/header.php";
 
 ?>
 <h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
-<h3 class="text-center">ICTH</h3>
+<h3 class="text-center">Registro Familiar</h3>
 <div class="card">
     <div class="card-body">
         <div class="row">
