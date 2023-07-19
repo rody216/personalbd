@@ -6,7 +6,6 @@ if (empty($_SESSION['active'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,11 +17,9 @@ if (empty($_SESSION['active'])) {
     <link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="../assets/js/jquery-ui/jquery-ui.min.css">
     <script src="../assets/js/all.min.js" crossorigin="anonymous"></script>
-   
-    
-   
-</head>
 
+
+</head>
 <body>
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
@@ -39,22 +36,55 @@ if (empty($_SESSION['active'])) {
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="usuarios.php">
-                            <i class="fas fa-user mr-2 fa-2x"></i>
-                            <p> Usuarios</p>
+                            <i class="fas fa-user-circle mr-2 fa-2x"></i>
+                            <p>Usuarios</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex" href="config.php">
-                            <i class="fas fa-cogs mr-2 fa-2x"></i>
-                            <p> Configuración</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link d-flex" href="productos.php">
+                        <a class="nav-link d-flex" href="datos_personales.php">
                             <i class="fab fa-product-hunt mr-2 fa-2x"></i>
-                            <p>Registrar Familiar</p>
+                            <p>Personal</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="familia.php">
+                            <i class="fa fa fa-users mr-2 fa-2x"></i>
+                            <p>Familiar</p>
+                        </a>
+                    </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="formacion.php">
+                            <i class="fa fa-graduation-cap mr-2 fa-2x"></i>
+                            <p>Formación</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="finanzas.php">
+                            <i class="fa fa-credit-card mr-2 fa-2x"></i>
+                            <p>Finanzas</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="antecedentes.php">
+                            <i class="fa fa-file mr-2 fa-2x"></i>
+
+                            <p>Antecendentes</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="icth.php">
+                            <i class="fab fa-itch-io mr-2 fa-2x"></i>
+                            <p>ICTH</p>
+                        </a>
+                    </li>
+                    <!-- no borrar nos serve para orientarnos rodolfo
+                         <li class="nav-item">
+                        <a class="nav-link d-flex" href="productos.php">
+                            <i class="fas fa-users mr-2 fa-2x"></i>
+                            <p>Familia</p>
+                        </a>
+                    </li> 
+                    
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="parentesco.php">
                             <i class="fab fa-product-hunt mr-2 fa-2x"></i>
@@ -67,7 +97,13 @@ if (empty($_SESSION['active'])) {
                             <p> Empleados</p>
                         </a>
                     </li>
-                    <!--
+                   
+                         <li class="nav-item">
+                        <a class="nav-link d-flex" href="config.php">
+                            <i class="fas fa-cogs mr-2 fa-2x"></i>
+                            <p> Configuración</p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="ventas.php">
                             <i class="fas fa-cash-register mr-2 fa-2x"></i>
@@ -81,13 +117,8 @@ if (empty($_SESSION['active'])) {
                         </a>
                     </li>
                     -->
-                    <li class="nav-item">
-                        <a class="nav-link d-flex" href="datos_personales.php">
-                            <i class="fab fa-product-hunt mr-2 fa-2x"></i>
-                            <p>Ingresar Datos Personales</p>
-                        </a>
-                    </li>
-                    
+
+
                 </ul>
             </div>
         </div>
@@ -96,8 +127,7 @@ if (empty($_SESSION['active'])) {
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top bg-dark">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        
-                        <a class="navbar-brand" href="../login_usuarios.php">Datos de los Usuarios</a>
+                        <a class="navbar-brand" href="#">BLI-NP</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -128,5 +158,3 @@ if (empty($_SESSION['active'])) {
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
-
-               

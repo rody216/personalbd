@@ -5808,6 +5808,7 @@ button.close {
 .modal-title {
   margin-bottom: 0;
   line-height: 1.5;
+  margin-left: 35%;
 }
 
 .modal-body {
@@ -6399,7 +6400,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #2196f3 !important;
+  background-color: #9C27B0 !important;
 }
 
 a.bg-primary:hover,
@@ -9386,12 +9387,12 @@ a.text-light:focus {
 }
 
 .text-dark {
-  color: #9c27b0!important;
+  color: #9c27b0 !important;
 }
 
 a.text-dark:hover,
 a.text-dark:focus {
-  color: #9c27b0!important;
+  color: #9c27b0 !important;
 }
 
 .text-muted,
@@ -13818,13 +13819,13 @@ fieldset[disabled] .form-group .form-control {
 
 .navbar .navbar-brand {
   position: relative;
-  color: inherit;
+  color: #fff;
   height: 50px;
-  font-size: 1.125rem;
+  font-size: 2rem;
   line-height: 30px;
   padding: 0.625rem 0;
   font-weight: 300;
-  margin-left: 1rem;
+  margin-left: 30rem;
 }
 
 .navbar>.container {
@@ -13935,8 +13936,9 @@ fieldset[disabled] .form-group .form-control {
 
 .navbar.bg-dark {
   color: #fff;
-  background-color: #212121 !important;
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46);
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+
 }
 
 .navbar.bg-dark .dropdown-item:hover,
@@ -15175,6 +15177,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   width: 260px;
   z-index: 4;
   padding-bottom: 30px;
+  background-color: #9c27b066;
 }
 
 .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop {
@@ -15245,6 +15248,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .sidebar .nav {
   margin-top: 20px;
   display: block;
+  background-image: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
 }
 
 .sidebar .nav .caret {
@@ -15306,6 +15310,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   display: block;
   height: auto;
   white-space: nowrap;
+  color: black;
 }
 
 .sidebar .nav i {
@@ -15359,6 +15364,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   display: block;
   position: relative;
   z-index: 4;
+  background-image: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
 }
 
 .sidebar .logo:after {
@@ -17016,7 +17022,7 @@ a .material-icons {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: #4caf50;
   font-weight: 400;
 }
 

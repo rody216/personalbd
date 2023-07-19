@@ -102,8 +102,8 @@ mysqli_close($conexion);
 include_once "includes/header.php";
 
 ?>
-<h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
-<h3 class="text-center">Registro Personal</h3>
+<h2 class="text-center" style="color: #9C27B0;">Bienvenido</h2>
+<h5 class="text-center">Datos Personales</h5>
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -263,21 +263,21 @@ include_once "includes/header.php";
                     <thead>
                         <tr>
                             <th class="text-success">ID</th>
-                            <th><span class="text-primary">Documento de Identidad</span></th>
-                            <th><span class="text-success">Tipo de Documento</span></th>
-                            <th><span class="text-danger">Fecha de Expedición</span></th>
+                            <th><span class="text-primary">Documento</span></th>
+                            <th><span class="text-success">Tipo</span></th>
+                            <th><span class="text-danger">Fecha</span></th>
                             <th><span class="text-warning">Nombre</span></th>
-                            <th><span class="text-info">Segundo Nombre</span></th>
+                            <th><span class="text-info">Segundo</span></th>
                             <th><span class="text-success">Apellido</span></th>
-                            <th><span class="text-primary">Fecha de Nacimiento</span></th>
-                            <th><span class="text-secondary">Grupo Sanguíneo</span></th>
-                            <th><span class="text-success">Factor RH</span></th>
+                            <th><span class="text-primary">Nacimiento</span></th>
+                            <th><span class="text-secondary">Grupo</span></th>
+                            <th><span class="text-success">RH</span></th>
                             <th><span class="text-danger">EPS</span></th>
                             <th><span class="text-warning">ARL</span></th>
                             <th><span class="text-info">CCF</span></th>
-                            <th><span class="text-warning">País de Residencia</span></th>
+                            <th><span class="text-warning">País</span></th>
                             <th><span class="text-primary">Departamento</span></th>
-                            <th><span class="text-secondary">Estado Civil</span></th>
+                            <th><span class="text-secondary">Estado</span></th>
                             <th><span class="text-success">Teléfono</span></th>
                             <th><span class="text-danger">Celular</span></th>
                             <th><span class="text-warning">Email</span></th>
@@ -315,9 +315,9 @@ include_once "includes/header.php";
                                     <td><span class="text-warning"><?php echo $data['email']; ?></span></td>
                                     <td class="text-center"><img src="/assets/img/data/<?php echo $data['imagen']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
                                     <td>
-                                        <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i></a>
+                                        <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
                                         <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
-                                            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+                                            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> Eliminar</button>
                                         </form>
                                     </td>
                                 </tr>
