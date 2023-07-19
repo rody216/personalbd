@@ -45,21 +45,21 @@ if (!empty($_POST)) {
         $email = $_POST['email'];
         $imagen = $_FILES['imagen']['name'];
 
-      
-// Verificar si se subió una imagen
-$path = "/assets/img/data/" . basename($_FILES['imagen']['name']);
 
-if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
-    echo "El archivo " .  basename($_FILES['imagen']['name']) . " ha sido subido";
-} else {
-    echo "El archivo no se ha subido correctamente";
-    // Establecer una imagen por defecto si no se subió ninguna
-    $image_path = '/assets/img/logo.png';
-}
+        // Verificar si se subió una imagen
+        $path = "/assets/img/data/" . basename($_FILES['imagen']['name']);
+
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
+            echo "El archivo " .  basename($_FILES['imagen']['name']) . " ha sido subido";
+        } else {
+            echo "El archivo no se ha subido correctamente";
+            // Establecer una imagen por defecto si no se subió ninguna
+            $image_path = '/assets/img/logo.png';
+        }
 
 
         $query_insert = mysqli_query($conexion, "INSERT INTO personal (documento_de_identidad, tipo_de_documento, fecha_de_expedicion, nombre, segundo_nombre, apellido, fecha_de_nacimiento, grupo_sanguinio, factor_RH, eps, arl, ccf, pais_de_residencia, departamento, estado_civil, telefono, celular, email, imagen) VALUES ('$documento_de_identidad', '$tipo_de_documento', '$fecha_de_expedicion', '$nombre', '$segundo_nombre', '$apellido', '$fecha_de_nacimiento', '$grupo_sanguinio', '$factor_RH', '$eps', '$arl', '$ccf', '$pais_de_residencia', '$departamento', '$estado_civil', '$telefono', '$celular', '$email', '$ruta$imagen')");
-        
+
         if ($query_insert) {
             $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         Personal registrado correctamente
@@ -78,23 +78,23 @@ if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
     }
 } else {
     if (!empty($_POST)) {
-    $sql_update = mysqli_query($conexion, "UPDATE personal SET documento_de_identidad = '$documento_de_identidad', tipo_de_documento = '$tipo_de_documento', fecha_de_expedicion = '$fecha_de_expedicion', nombre = '$nombre', segundo_nombre = '$segundo_nombre', apellido = '$apellido', fecha_de_nacimiento = '$fecha_de_nacimiento', grupo_sanguinio = '$grupo_sanguinio', factor_RH = '$factor_RH', eps = '$eps', arl = '$arl', ccf = '$ccf', pais_de_residencia = '$pais_de_residencia', departamento = '$departamento', estado_civil = '$estado_civil', telefono = '$telefono', celular = '$celular', email = '$email', imagen = '$ruta$imagen' WHERE id = '$id_update'");
-    if ($sql_update) {
-        $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        $sql_update = mysqli_query($conexion, "UPDATE personal SET documento_de_identidad = '$documento_de_identidad', tipo_de_documento = '$tipo_de_documento', fecha_de_expedicion = '$fecha_de_expedicion', nombre = '$nombre', segundo_nombre = '$segundo_nombre', apellido = '$apellido', fecha_de_nacimiento = '$fecha_de_nacimiento', grupo_sanguinio = '$grupo_sanguinio', factor_RH = '$factor_RH', eps = '$eps', arl = '$arl', ccf = '$ccf', pais_de_residencia = '$pais_de_residencia', departamento = '$departamento', estado_civil = '$estado_civil', telefono = '$telefono', celular = '$celular', email = '$email', imagen = '$ruta$imagen' WHERE id = '$id_update'");
+        if ($sql_update) {
+            $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         Personal actualizado correctamente
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">x</span>
                         </button>
                     </div>';
-    } else {
-        $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        } else {
+            $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                         Error al actualizar el personal
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">x</span>
                         </button>
                     </div>';
+        }
     }
- }
 }
 
 mysqli_close($conexion);
@@ -129,9 +129,9 @@ include_once "includes/header.php";
                             <div class="form-group">
                                 <label for="tipo_de_documento" class="text-success font-weight-bold">Tipo de Documento</label>
                                 <input type="text" class="form-control" name="tipo_de_documento" id="tipo_de_documento" placeholder="Ingresar tipo de documento">
-                           </div>
+                            </div>
                         </div>
-                         <!-- *FECHA DE EXPEDICION* -->
+                        <!-- *FECHA DE EXPEDICION* -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="fecha_de_expedicion" class="text-success font-weight-bold">Fecha de Expedición</label>
@@ -140,7 +140,7 @@ include_once "includes/header.php";
                                 </div>
                             </div>
                         </div>
-                         <!-- *NOMBRE* -->
+                        <!-- *NOMBRE* -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="nombre" class="text-success font-weight-bold">Nombre</label>
@@ -161,7 +161,7 @@ include_once "includes/header.php";
                                 <input type="text" placeholder="Ingrese Apellido" name="apellido" id="apellido" class="form-control">
                             </div>
                         </div>
-                         <!-- *FECHA DE NACIMIENTO* -->
+                        <!-- *FECHA DE NACIMIENTO* -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="fecha_de_nacimiento" class="text-success font-weight-bold">Fecha de Nacimiento</label>
@@ -170,7 +170,7 @@ include_once "includes/header.php";
                                 </div>
                             </div>
                         </div>
-                    <!-- *GRUPO SANGUINIO* -->
+                        <!-- *GRUPO SANGUINIO* -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="grupo_sanguinio" class="text-success font-weight-bold">Grupo Sanguíneo</label>
@@ -259,8 +259,8 @@ include_once "includes/header.php";
         <br /><br />
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-bordered table-dark">
-                    <thead>
+                <table class="table table-bordered table-primary">
+                    <thead class="thead-dark">
                         <tr>
                             <th class="text-success">ID</th>
                             <th><span class="text-primary">Documento</span></th>
@@ -316,6 +316,7 @@ include_once "includes/header.php";
                                     <td class="text-center"><img src="/assets/img/data/<?php echo $data['imagen']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
                                     <td>
                                         <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
+                                        <a href="ventas.php" class="btn btn-success"><i class='fas fa-edit'></i> Imprimir</a>
                                         <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
                                             <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> Eliminar</button>
                                         </form>
