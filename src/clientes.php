@@ -35,6 +35,18 @@ if (!empty($_POST)) {
         $imagen = $_POST['imagen'];
         $grupo_sangre = $_POST['grupo_sangre'];
         $result = 0;
+        // Verificar si se subió una imagen
+        $path = "/assets/img/data/" . basename($_FILES['imagen']['name']);
+
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
+            echo "El archivo " .  basename($_FILES['imagen']['name']) . " ha sido subido";
+        } else {
+            echo "El archivo no se ha subido correctamente";
+            // Establecer una imagen por defecto si no se subió ninguna
+            $image_path = '/assets/img/logo.png';
+        }
+
+
         if (empty($id)) {
             $query = mysqli_query($conexion, "SELECT * FROM cliente WHERE nombre = '$nombre'");
             $result = mysqli_fetch_array($query);
@@ -134,6 +146,7 @@ include_once "includes/header.php";
                                 <input type="text" placeholder="Ingrese Dirección" name="direccion" id="direccion" class="form-control">
                             </div>
                         </div>
+                        <!-- *IMAGEN* -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="imagen" class="text-dark font-weight-bold">Imagen</label>

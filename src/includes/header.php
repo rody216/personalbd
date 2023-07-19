@@ -3,6 +3,7 @@ if (empty($_SESSION['active'])) {
     header('Location: ../');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,18 +18,9 @@ if (empty($_SESSION['active'])) {
     <link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="../assets/js/jquery-ui/jquery-ui.min.css">
     <script src="../assets/js/all.min.js" crossorigin="anonymous"></script>
-    <!-- CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- CSS de Bootstrap Datepicker -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-
-    <!-- JS de jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- JS de Bootstrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- JS de Bootstrap Datepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
+   
+    
+   
 </head>
 
 <body>
@@ -75,6 +67,7 @@ if (empty($_SESSION['active'])) {
                             <p> Empleados</p>
                         </a>
                     </li>
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="ventas.php">
                             <i class="fas fa-cash-register mr-2 fa-2x"></i>
@@ -87,12 +80,14 @@ if (empty($_SESSION['active'])) {
                             <p> Historial Ventas</p>
                         </a>
                     </li>
+                    -->
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="datos_personales.php">
                             <i class="fab fa-product-hunt mr-2 fa-2x"></i>
-                            <p>Datos Personales</p>
+                            <p>Ingresar Datos Personales</p>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
@@ -101,7 +96,8 @@ if (empty($_SESSION['active'])) {
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top bg-dark">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Datos de los Usuarios</a>
+                        
+                        <a class="navbar-brand" href="../login_usuarios.php">Datos de los Usuarios</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -132,3 +128,5 @@ if (empty($_SESSION['active'])) {
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
+
+               
