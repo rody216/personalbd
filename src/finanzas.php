@@ -153,8 +153,8 @@ include_once "includes/header.php";
         <br /><br />
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-bordered table-dark">
-                    <thead>
+                <table class="table table-bordered table-primary">
+                    <thead class="thead-dark">
                         <tr>
                             <th class="text-success">ID</th>
                             <th><span class="text-primary">Entidad Financiera</span></th>
@@ -174,12 +174,13 @@ include_once "includes/header.php";
                             while ($data = mysqli_fetch_assoc($query)) { ?>
                                 <tr>
                                     <td><span class="text-success"><?php echo $data['id']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>
-                                    <td><span class="text-warning"><?php echo $data['nombre']; ?></span></td>                                   
+                                    <td><span class="text-dark"><?php echo $data['nombre']; ?></span></td>
+                                    <td><span class="text-dark"><?php echo $data['nombre']; ?></span></td>
+                                    <td><span class="text-dark"><?php echo $data['nombre']; ?></span></td>                                   
                                     <td class="text-center"><img src="/assets/img/data/<?php echo $data['imagen']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
                                     <td>
                                         <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
+                                        <a href="ventas.php" class="btn btn-success"><i class='fas fa-edit'></i> Imprimir</a>
                                         <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
                                             <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> Eliminar</button>
                                         </form>

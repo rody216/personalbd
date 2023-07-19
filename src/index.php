@@ -13,7 +13,7 @@ include_once "includes/header.php";
 ?>
 <!-- Content Row -->
 <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card card-stats">
             <div class="card-header card-header-success card-header-icon">
                 <div class="card-icon">
@@ -29,7 +29,7 @@ include_once "includes/header.php";
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card card-stats">
             <div class="card-header card-header-success card-header-icon">
                 <div class="card-icon">
@@ -44,7 +44,7 @@ include_once "includes/header.php";
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="col-lg-4 col-md-6 col-sm-6">
         <div class="card card-stats">
             <div class="card-header card-header-primary card-header-icon">
                 <div class="card-icon">
@@ -59,6 +59,9 @@ include_once "includes/header.php";
             </div>
         </div>
     </div>
+</div>
+
+    <!-- Ventas 
     <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
             <div class="card-header card-header-primary card-header-icon">
@@ -74,8 +77,8 @@ include_once "includes/header.php";
             </div>
         </div>
     </div>
-
-    <div class="col-lg-6">
+-->
+    <div class="col-lg-14">
     <div class="card">
         <div class="card-header card-header-primary">
             <h3 class="title-2 m-b-40">Empleados Registro <?php echo $total['clientes']; ?></h3>
@@ -126,7 +129,7 @@ include_once "includes/header.php";
 </div>
 
 
-    <div class="col-lg-6">
+    <div class="col-lg-14">
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="title-2 m-b-40">Usuarios <?php echo $total['usuarios']; ?></h3>
@@ -149,11 +152,10 @@ include_once "includes/header.php";
                         if ($result > 0) {
                             while ($data = mysqli_fetch_assoc($query)) { ?>
                                 <tr>
-                                    <td><?php echo $data['idusuario']; ?></td>
-                                    <td><?php echo $data['nombre']; ?></td>
-                                    <td><?php echo $data['correo']; ?></td>
-                                    <td><?php echo $data['usuario']; ?></td>
-                                    <td></td>
+                                    <td class="text-center"><?php echo $data['idusuario']; ?></td>
+                                    <td class="text-center"><?php echo $data['nombre']; ?></td>
+                                    <td class="text-center"><?php echo $data['correo']; ?></td>
+                                    <td class="text-center"><?php echo $data['usuario']; ?></td>                                    
                                 </tr>
                         <?php }
                         } ?>
