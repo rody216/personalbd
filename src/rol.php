@@ -40,15 +40,15 @@ include_once "includes/header.php";
             </div>
             <div class="card-body">
                 <form method="post" action="">
-                    <?php echo (isset($alert)) ? $alert : '' ; ?>
+                    <?php echo (isset($alert)) ? $alert : ''; ?>
                     <?php while ($row = mysqli_fetch_assoc($sqlpermisos)) { ?>
                         <div class="form-check form-check-inline m-4">
                             <label for="permisos" class="p-2 text-uppercase"><?php echo $row['nombre']; ?></label>
                             <input id="permisos" type="checkbox" name="permisos[]" value="<?php echo $row['id']; ?>" <?php
-                                                                                                                        if (isset($datos[$row['id']])) {
-                                                                                                                            echo "checked";
-                                                                                                                        }
-                                                                                                                        ?>>
+                           if (isset($datos[$row['id']])) {
+                             echo "checked";
+                            }
+                        ?>>
                         </div>
                     <?php } ?>
                     <br>

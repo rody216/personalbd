@@ -288,7 +288,6 @@ include_once "includes/header.php";
                     <tbody>
                         <?php
                         include "../conexion.php";
-
                         $query = mysqli_query($conexion, "SELECT * FROM personal");
                         $result = mysqli_num_rows($query);
                         if ($result > 0) {

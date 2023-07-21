@@ -51,8 +51,7 @@ if (!empty($_SESSION['active'])) {
 </head>
 <body>
     <div style="display: flex;justify-content: space-between;">
-        <div class="container" style="display: none;">
-            <center><b class="title label mb-2">Bienvenido</b></center>
+        <div class="container" style="display: none;">            
             <form action="" id="login-form" method="POST">
                 <div class="user-details">
                     <div class="input-box">
@@ -63,12 +62,10 @@ if (!empty($_SESSION['active'])) {
                     </div>
 					<?php echo (isset($alert)) ? $alert : '' ; ?>
                     <div class="button">
-                        <input type="submit" value="Registrarse">
+                        <input class="text-center" type="submit" value="Entrar">
                     </div>
                 </div>
-                <center>
-                    <input type="checkbox" id="toggle" onclick="changeMode();">
-                </center>
+              
             </form>
         </div>
 

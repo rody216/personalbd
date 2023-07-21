@@ -50,14 +50,14 @@ if (!empty($_POST)) {
 
         if ($query_insert) {
             $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        Educacion registrada correctamente
+                        Personal registrado correctamente
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>';
         } else {
             $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Error al registrar los datos de la Educacion
+                        Error al registrar el personal
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -91,7 +91,7 @@ include_once "includes/header.php";
 
 ?>
 <h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
-<h3 class="text-center">Registro Educativo</h3>
+<h3 class="text-center">Registro Familiar</h3>
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -99,122 +99,122 @@ include_once "includes/header.php";
                 <?php echo (isset($alert)) ? $alert : ''; ?>
                 <form action="" method="post" autocomplete="on" id="formulario" enctype="multipart/form-data">
                     <div class="row">
-                        <br><br>
+                    <br><br>
                         <!-- Institucion Educativa * -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Institucion_Educativa" class="text-success font-weight-bold">Institucion Educativa</label>
-                                <input type="text" placeholder="Ingresar Documento" name="Institucion_Educativa" id="Institucion_Educativa" class="form-control">
+                                <label for="documento_de_identidad" class="text-success font-weight-bold">Institucion Educativa</label>
+                                <input type="text" placeholder="Ingresar Documento" name="documento_de_identidad" id="documento_de_identidad" class="form-control">
                             </div>
                         </div>
                         <!-- *Nivel Academico* -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Nivel_Academico" class="text-success font-weight-bold">Nivel Academico</label>
-                                <input type="text" class="form-control" name="Nivel_Academico" id="Nivel_Academico" placeholder="Ingresar tipo de documento">
-                            </div>
+                                <label for="tipo_de_documento" class="text-success font-weight-bold">Nivel Academico</label>
+                                <input type="text" class="form-control" name="tipo_de_documento" id="tipo_de_documento" placeholder="Ingresar tipo de documento">
+                           </div>
                         </div>
-                        <!-- *Modalidad* -->
+                         <!-- *Modalidad* -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for=" Modalidad" class="text-success font-weight-bold">Modalidad</label>
+                                <label for="fecha_de_expedicion" class="text-success font-weight-bold">Modalidad</label>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" name=" Modalidad" id="Modalidad" placeholder="Ingresar la Expedición">
+                                    <input type="text" class="form-control" name="fecha_de_expedicion" id="fecha_de_expedicion" placeholder="Ingresar la Expedición">
                                 </div>
                             </div>
                         </div>
-                        <!-- *Titulo Obtenido* -->
+                         <!-- *Titulo Obtenido* -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Titulo_Obtenido" class="text-success font-weight-bold">Titulo Obtenido</label>
-                                <input type="text" placeholder=" Titulo_Obtenido" name="nombre" id="Titulo_Obtenido" class="form-control">
+                                <label for="nombre" class="text-success font-weight-bold">Titulo Obtenido</label>
+                                <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
                             </div>
                         </div>
                         <!-- *Fecha de Inicio* -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Fecha_Inicio" class="text-success font-weight-bold">Fecha de Inicio</label>
+                                <label for="fecha_de_nacimiento" class="text-success font-weight-bold">Fecha de Inicio</label>
                                 <div class="input-group date">
-                                    <input type="date" class="form-control" name="Fecha_Inicio" id="Fecha_Inicio" placeholder="Ingrase la fecha">
+                                    <input type="date" class="form-control" name="fecha_de_nacimiento" id="fecha_de_nacimiento" placeholder="Ingrase la fecha">
                                 </div>
                             </div>
                         </div>
                         <!-- *Fecha de Finalizacion* -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Fecha_Finalizacion" class="text-success font-weight-bold">Fecha de Finalizacion</label>
+                                <label for="fecha_de_nacimiento" class="text-success font-weight-bold">Fecha de Finalizacion</label>
                                 <div class="input-group date">
-                                    <input type="date" class="form-control" name="Fecha_Finalizacion" id=" Fecha_Finalizacion" placeholder="Ingrase la fecha">
+                                    <input type="date" class="form-control" name="fecha_de_nacimiento" id="fecha_de_nacimiento" placeholder="Ingrase la fecha">
                                 </div>
                             </div>
                         </div>
-                        <!-- *IMAGEN* -->
+                       <!-- *IMAGEN* -->
                         <div class="col-md-3">
-                            <label for="Imagen" class="text-success font-weight-bold">Subir Imagen</label>
-                            <input type="file" name="Imagen" id="imagen" class="form-control" />
+                            <label for="imagen" class="text-success font-weight-bold">Subir Imagen</label>
+                            <input type="file" name="imagen" id="imagen" class="form-control" />
                         </div>
                     </div>
                 </form>
             </div>
         </div>
         <br /><br />
-        <!-- BOTONES DE VALIDACION * -->
-        <div>
-            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
-            <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+                        <!-- BOTONES DE VALIDACION * -->
+                        <div>
+                            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
+                            <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br /><br />
+
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-success">
+                    <thead>
+                        <tr>
+                            <th class="text-success">ID</th>
+                            <th><span class="text-primary">Institucion_Educativa</span></th>
+                            <th><span class="text-success">Nivel_Academico</span></th>
+                            <th><span class="text-danger">Modalidad </span></th>
+                            <th><span class="text-info">Titulo_Obtenido</span></th>
+                            <th><span class="text-info">Fecha_Inicio</span></th>
+                            <th><span class="text-info">Fecha_Finalizacion </span></th>
+                            <th><span class="text-info">Imagen</span></th>
+                            <th><span class="text-success">Acciones</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include "../conexion.php";
+
+                        $query = mysqli_query($conexion, "SELECT * FROM educacion");
+                        $result = mysqli_num_rows($query);
+                        if ($result > 0) {
+                            while ($data = mysqli_fetch_assoc($query)) { ?>
+                                <tr>
+                                    <td><span class="text-success"><?php echo $data['id']; ?></span></td>
+                                    <td><span class="text-warning"><?php echo $data['Institucion_Educativa']; ?></span></td>
+                                    <td><span class="text-danger"><?php echo $data['Nivel_Academico']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['Modalidad']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['Titulo_Obtenido']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['Fecha_Inicio']; ?></span></td>
+                                    <td><span class="text-primary"><?php echo $data['Fecha_Finalizacion ']; ?></span></td>
+                                    <td class="text-center"><img src="/assets/img/data/<?php echo $data['#']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
+                                    <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
+                                    <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
+                                        <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> Eliminar</button>
+                                    </form>
+                                    </td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    </form>
-</div>
-</div>
-<br /><br />
-
-<div class="col-md-12">
-    <div class="table-responsive">
-        <table class="table table-bordered table-success">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="text-success">ID</th>
-                    <th><span class="text-primary">Institucion_Educativa</span></th>
-                    <th><span class="text-success">Nivel_Academico</span></th>
-                    <th><span class="text-danger">Modalidad </span></th>
-                    <th><span class="text-info">Titulo_Obtenido</span></th>
-                    <th><span class="text-info">Fecha_Inicio</span></th>
-                    <th><span class="text-info">Fecha_Finalizacion </span></th>
-                    <th><span class="text-info">Imagen</span></th>
-                    <th><span class="text-success">Acciones</span></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include "../conexion.php";
-
-                $query = mysqli_query($conexion, "SELECT * FROM educacion");
-                $result = mysqli_num_rows($query);
-                if ($result > 0) {
-                    while ($data = mysqli_fetch_assoc($query)) { ?>
-                        <tr>
-                            <td><span class="text-success"><?php echo $data['id']; ?></span></td>
-                            <td><span class="text-warning"><?php echo $data['Institucion_Educativa']; ?></span></td>
-                            <td><span class="text-danger"><?php echo $data['Nivel_Academico']; ?></span></td>
-                            <td><span class="text-primary"><?php echo $data['Modalidad']; ?></span></td>
-                            <td><span class="text-primary"><?php echo $data['Titulo_Obtenido']; ?></span></td>
-                            <td><span class="text-primary"><?php echo $data['Fecha_Inicio']; ?></span></td>
-                            <td><span class="text-primary"><?php echo $data['Fecha_Finalizacion ']; ?></span></td>
-                            <td class="text-center"><img src="/assets/img/data/<?php echo $data['#']; ?>" alt="<?php echo $data['nombre']; ?>" class="img-thumbnail" width="80px" height="80px"></td>
-                            <a href="#" onclick="editarPersonal(<?php echo $data['id']; ?>)" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
-                            <form action="eliminar_personal.php?id=<?php echo $data['id']; ?>" method="post" class="confirmar d-inline">
-                                <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> Eliminar</button>
-                            </form>
-                            </td>
-                        </tr>
-                <?php }
-                } ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-</div>
 </div>
 
 <?php

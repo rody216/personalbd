@@ -17,18 +17,14 @@ if (empty($_SESSION['active'])) {
     <link href="../assets/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="../assets/js/jquery-ui/jquery-ui.min.css">
     <script src="../assets/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/controllers/bootstrap/css/modal.css">
 
 
 </head>
 <body>
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
-        <style>
-    .logo img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
+      
             <div class="logo"><a href="./" class="simple-text logo-normal">
         <img src="../assets/img/icon.png" alt="Logo de BLI - NP">
     </a></div>
@@ -77,7 +73,13 @@ if (empty($_SESSION['active'])) {
                             <p>ICTH</p>
                         </a>
                     </li>
-                    <!-- no borrar nos serve para orientarnos rodolfo
+                    <li class="nav-item">
+                        <a class="nav-link d-flex" href="ventas.php">
+                            <i class="fab fa-itch-io mr-2 fa-2x"></i>
+                            <p>Reportes</p>
+                        </a>
+                    </li>
+                    <!-- no borrar nos sirve para orientarnos rodolfo
                          <li class="nav-item">
                         <a class="nav-link d-flex" href="productos.php">
                             <i class="fas fa-users mr-2 fa-2x"></i>
