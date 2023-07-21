@@ -83,6 +83,7 @@ INSERT INTO `configuracion` (`id`, `nombre`, `telefono`, `email`, `direccion`) V
 (1, 'Sistemas Free', '98745698', 'ana.info1999@gamil.com', 'Trujillo');
 
 -- --------------------------------------------------------
+
 -- Crear tabla personal
 CREATE TABLE personal (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -182,26 +183,43 @@ CREATE TABLE IF NOT EXISTS `detalle_venta` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `paises`
+--
 
--- Crear la tabla "paises"
-CREATE TABLE paises (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL
-);
+CREATE TABLE `paises` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Insertar el país Colombia en la tabla "paises"
-INSERT INTO paises (nombre) VALUES ('Colombia');
+--
+-- Estructura de tabla para la tabla `pais`
+--
 
--- Obtener el ID del país Colombia insertado
-SET @pais_id = LAST_INSERT_ID();
+DROP TABLE IF EXISTS `pais`;
+CREATE TABLE IF NOT EXISTS `pais` (
+  `id` int NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `capital` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `idioma_oficial` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `moneda` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `poblacion` int DEFAULT NULL,
+  `area` int DEFAULT NULL,
+  `continente` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `codigo_pais` varchar(2) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `prefijo_telefonico` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cctld` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Crear la tabla "departamentos"
-CREATE TABLE departamento (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    pais_id INT,
-    FOREIGN KEY (pais_id) REFERENCES paises(id)
-);
+--
+-- Volcado de datos para la tabla `pais`
+--
+
+INSERT INTO `pais` (`id`, `nombre`, `capital`, `idioma_oficial`, `moneda`, `poblacion`, `area`, `continente`, `codigo_pais`, `prefijo_telefonico`, `cctld`) VALUES
+(1, 'Colombia', 'Bogotá', 'Español', 'Peso colombiano', 50372424, 1141748, 'América del Sur', 'CO', '+57', 'co'),
+(2, 'Ecuador', 'Quito', 'Español', 'Dólar estadounidense', 4088589, 108849, 'América del Sur', 'EC', '+593', 'ec'),
+(3, 'Venezuela', 'Caracas', 'Español', 'Bolívar soberano', 28870195, 916445, 'América del Sur', 'VE', '+58', 've');
 
 INSERT INTO departamento (nombre, pais_id)
 VALUES
@@ -1372,6 +1390,66 @@ VALUES
     ('La Primavera', @vichada_id),
     ('Puerto Carreño', @vichada_id),
     ('Santa Rosalía', @vichada_id);
+
+--
+-- Indices de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pais_id` (`pais_id`);
+
+--
+-- Indices de la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `departamento_id` (`departamento_id`);
+
+--
+-- Indices de la tabla `paises`
+--
+ALTER TABLE `paises`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `paises`
+--
+ALTER TABLE `paises`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD CONSTRAINT `departamentos_ibfk_1` FOREIGN KEY (`pais_id`) REFERENCES `paises` (`id`);
+
+--
+-- Filtros para la tabla `municipios`
+--
+ALTER TABLE `municipios`
+  ADD CONSTRAINT `municipios_ibfk_1` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`id`);
+COMMIT;
+    
 
 --
 -- Estructura de tabla para la tabla `permisos`
