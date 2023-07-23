@@ -40,7 +40,7 @@ if (!empty($_SESSION['active'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +62,7 @@ if (!empty($_SESSION['active'])) {
                     </div>
 					<?php echo (isset($alert)) ? $alert : '' ; ?>
                     <div class="button">
-                        <input class="text-center" type="submit" value="Entrar">
+                        <input class="text-center" type="submit" value="Ingreso">
                     </div>
                 </div>
               
