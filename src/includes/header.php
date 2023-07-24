@@ -18,6 +18,7 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../assets/js/jquery-ui/jquery-ui.min.css">
     <script src="../assets/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/src/controllers/bootstrap/css/modal.css">
+ 
 
 
 </head>
@@ -63,7 +64,6 @@ if (empty($_SESSION['active'])) {
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="antecedentes.php">
                             <i class="fa fa-file mr-2 fa-2x"></i>
-
                             <p>Antecendentes</p>
                         </a>
                     </li>
@@ -75,7 +75,7 @@ if (empty($_SESSION['active'])) {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link d-flex" href="ventas.php">
-                            <i class="fab fa-itch-io mr-2 fa-2x"></i>
+                            <i class="fa fa-file mr-2 fa-2x"></i>
                             <p>Reportes</p>
                         </a>
                     </li>

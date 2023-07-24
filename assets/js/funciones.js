@@ -504,6 +504,7 @@ function editarUsuario(id) {
             $('#nombre').val(datos.nombre);
             $('#usuario').val(datos.usuario);
             $('#correo').val(datos.correo);
+            $('#clave').val(datos.correo);
             $('#id').val(datos.idusuario);
             $('#btnAccion').val('Modificar');
         },

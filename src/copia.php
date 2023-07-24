@@ -220,3 +220,125 @@ include_once "includes/header.php";
 <?php
 include_once "includes/footer.php";
 ?>
+
+<!-- Ventana modal 
+<input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
+              <input type="button" value="Actualizar" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#ventanaModal"><i class='fas fa-edit'></i>Crear </a>
+            
+<div id="ventanaModal" class="modal">
+  <div class="contenido-modal">
+    <span class="cerrar"></span>
+    <div class="container">
+      Aquí colocamos el contenido PHP
+      <?php
+      include "./controllers/Conexion.php";
+      $db =  connect();
+      $query = $db->query("select * from continente");
+      $countries = array();
+      while ($r = $query->fetch_object()) {
+        $countries[] = $r;
+      }
+      ?>
+      <div class="panel panel-default">
+        <nav class="navbar navbar-default">
+           Extra para moviles mostrar 
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="./">Inicio <span class="sr-only">(current)</span></a></li>
+              <li><a href="./controllers/Nuevo.php">Agregar Registro</a></li>
+            </ul>
+          </div> /.navbar-collapse 
+        </nav>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h1>Bienvenidos</h1>
+              <?php if (isset($_COOKIE["comboadd"])) : ?>
+                <p class="alert alert-success">Agregado exitosamente!</p>
+              <?php setcookie("comboadd", 0, time() - 1);
+              endif; ?>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <form method="post" action="Agregar.php?opt=all">
+                <div class="form-group">
+                  <label for="name1">Continente</label>
+                  <select id="continente_id" class="form-control" name="continente_id" required>
+                    <option value="">Seleccione</option>
+                    <?php foreach ($countries as $c) : ?>
+                      <option value="<?php echo $c->id; ?>"><?php echo $c->name; ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="name1">Pais</label>
+                  <select id="pais_id" class="form-control" name="pais_id" required>
+                    <option value="">Seleccione</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="name1">Ciudad</label>
+                  <select id="ciudad_id" class="form-control" name="ciudad_id" required>
+                    <option value="">Seleccione</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-default">Agregar Registro</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer"></div>
+      </div> /.Cierra-default-panel 
+    </div> /.container
+    <script>
+      // Obtener elementos del DOM
+      const modal = document.getElementById("ventanaModal");
+      const modalBtn = document.getElementById("abrirModal");
+      const closeBtn = document.getElementsByClassName("cerrar")[0];
+      const guardarBtn = document.getElementById("guardarBtn");
+
+      // Abrir el modal al hacer clic en el botón
+      modalBtn.onclick = function() {
+        modal.style.display = "block";
+      };
+
+      // Cerrar el modal al hacer clic en la 'x'
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      };
+
+      // Cerrar el modal al hacer clic fuera del contenido
+      window.onclick = function(event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      // Función para guardar los datos ingresados
+      guardarBtn.onclick = function() {
+        const continente = document.getElementById("continente").value;
+        const pais = document.getElementById("pais").value;
+        const ciudad = document.getElementById("ciudad").value;
+
+        // Aquí puedes hacer lo que desees con los datos ingresados,
+        // por ejemplo, enviarlos a un servidor o procesarlos en JavaScript.
+        console.log("Continente:", continente);
+        console.log("País:", pais);
+        console.log("Ciudad:", ciudad);
+
+        // Cerrar el modal después de guardar los datos
+        modal.style.display = "none";
+      };
+    </script>
+    -->

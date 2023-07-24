@@ -15,6 +15,7 @@ if (isset($_GET['alert'])) {
 }
 
 if (!empty($_POST)) {
+    $result = $_POST['resul'];
     $alert = "";
     if (empty($_POST['documento_de_identidad']) || empty($_POST['tipo_de_documento']) || empty($_POST['fecha_de_expedicion']) || empty($_POST['nombre']) || empty($_POST['segundo_nombre']) || empty($_POST['apellido']) || empty($_POST['fecha_de_nacimiento']) || empty($_POST['grupo_sanguinio']) || empty($_POST['factor_RH']) || empty($_POST['eps']) || empty($_POST['arl']) || empty($_POST['ccf']) || empty($_POST['pais_de_residencia']) || empty($_POST['departamento']) || empty($_POST['estado_civil']) || empty($_POST['telefono']) || empty($_POST['celular']) || empty($_POST['email']) || empty($_FILES['imagen']['name'])) {
 
@@ -47,7 +48,7 @@ if (!empty($_POST)) {
 
 
         // Verificar si se subió una imagen
-        $path = "/assets/img/data/" . basename($_FILES['imagen']['name']);
+        $path = "../assets/img/data" . basename($_FILES['imagen']['name']);
 
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
             echo "El archivo " .  basename($_FILES['imagen']['name']) . " ha sido subido";
@@ -58,7 +59,7 @@ if (!empty($_POST)) {
         }
 
 
-        $query_insert = mysqli_query($conexion, "INSERT INTO personal (documento_de_identidad, tipo_de_documento, fecha_de_expedicion, nombre, segundo_nombre, apellido, fecha_de_nacimiento, grupo_sanguinio, factor_RH, eps, arl, ccf, pais_de_residencia, departamento, estado_civil, telefono, celular, email, imagen) VALUES ('$documento_de_identidad', '$tipo_de_documento', '$fecha_de_expedicion', '$nombre', '$segundo_nombre', '$apellido', '$fecha_de_nacimiento', '$grupo_sanguinio', '$factor_RH', '$eps', '$arl', '$ccf', '$pais_de_residencia', '$departamento', '$estado_civil', '$telefono', '$celular', '$email', '$ruta$imagen')");
+        $query_insert = mysqli_query($conexion, "INSERT INTO personal (documento_de_identidad, tipo_de_documento, fecha_de_expedicion, nombre, segundo_nombre, apellido, fecha_de_nacimiento, grupo_sanguinio, factor_RH, eps, arl, ccf, pais_de_residencia, departamento, estado_civil, telefono, celular, email, imagen) VALUES ('$documento_de_identidad', '$tipo_de_documento', '$fecha_de_expedicion', '$nombre', '$segundo_nombre', '$apellido', '$fecha_de_nacimiento', '$grupo_sanguinio', '$factor_RH', '$eps', '$arl', '$ccf', '$pais_de_residencia', '$departamento', '$estado_civil', '$telefono', '$celular', '$email', '$imagen')");
 
         if ($query_insert) {
             $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -113,8 +114,15 @@ include_once "includes/header.php";
                     <div class="row">
                         <!-- BOTONES DE VALIDACION * -->
                         <div>
-                            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
-                            <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+                            <button type="submit" class="btn btn-primary" id="btnAccion">
+                                <i class="fas fa-save"></i> Registrar
+                            </button>
+                           <!-- <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
+                            <input type="button" value="Actualizar" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+                            -->
+                            <button type="button" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+                                <i class="fas fa-sync-alt"></i> Actualizar
+                            </button>
                         </div>
                         <br><br>
                         <!-- DOCUMENTO DE IDENTIDAD * -->

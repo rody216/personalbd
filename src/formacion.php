@@ -104,14 +104,14 @@ include_once "includes/header.php";
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="Institucion_Educativa" class="text-success font-weight-bold">Institucion Educativa</label>
-                                <input type="text" placeholder="Ingresar Documento" name="Institucion_Educativa" id="Institucion_Educativa" class="form-control">
+                                <input type="text" placeholder="Ingresar Documento" name="Institucion_Educativa" id="Institucion_Educativa" class="form-control" require>
                             </div>
                         </div>
                         <!-- *Nivel Academico* -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="Nivel_Academico" class="text-success font-weight-bold">Nivel Academico</label>
-                                <input type="text" class="form-control" name="Nivel_Academico" id="Nivel_Academico" placeholder="Ingresar tipo de documento">
+                                <input type="text" class="form-control" name="Nivel_Academico" id="Nivel_Academico" placeholder="Ingresar tipo de documento" require>
                             </div>
                         </div>
                         <!-- *Modalidad* -->
@@ -119,7 +119,7 @@ include_once "includes/header.php";
                             <div class="form-group">
                                 <label for=" Modalidad" class="text-success font-weight-bold">Modalidad</label>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control" name=" Modalidad" id="Modalidad" placeholder="Ingresar la Expedición">
+                                    <input type="text" class="form-control" name=" Modalidad" id="Modalidad" placeholder="Ingresar la Expedición" require>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@ include_once "includes/header.php";
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="Titulo_Obtenido" class="text-success font-weight-bold">Titulo Obtenido</label>
-                                <input type="text" placeholder=" Titulo_Obtenido" name="nombre" id="Titulo_Obtenido" class="form-control">
+                                <input type="text" placeholder=" Titulo_Obtenido" name="nombre" id="Titulo_Obtenido" class="form-control" require>
                             </div>
                         </div>
                         <!-- *Fecha de Inicio* -->
@@ -135,7 +135,7 @@ include_once "includes/header.php";
                             <div class="form-group">
                                 <label for="Fecha_Inicio" class="text-success font-weight-bold">Fecha de Inicio</label>
                                 <div class="input-group date">
-                                    <input type="date" class="form-control" name="Fecha_Inicio" id="Fecha_Inicio" placeholder="Ingrase la fecha">
+                                    <input type="date" class="form-control" name="Fecha_Inicio" id="Fecha_Inicio" placeholder="Ingrase la fecha" require>
                                 </div>
                             </div>
                         </div>
@@ -144,14 +144,14 @@ include_once "includes/header.php";
                             <div class="form-group">
                                 <label for="Fecha_Finalizacion" class="text-success font-weight-bold">Fecha de Finalizacion</label>
                                 <div class="input-group date">
-                                    <input type="date" class="form-control" name="Fecha_Finalizacion" id=" Fecha_Finalizacion" placeholder="Ingrase la fecha">
+                                    <input type="date" class="form-control" name="Fecha_Finalizacion" id=" Fecha_Finalizacion" placeholder="Ingrase la fecha" require>
                                 </div>
                             </div>
                         </div>
                         <!-- *IMAGEN* -->
                         <div class="col-md-3">
                             <label for="Imagen" class="text-success font-weight-bold">Subir Imagen</label>
-                            <input type="file" name="Imagen" id="imagen" class="form-control" />
+                            <input type="file" name="Imagen" id="imagen" class="form-control" require>
                         </div>
                     </div>
                 </form>
@@ -160,8 +160,10 @@ include_once "includes/header.php";
         <br /><br />
         <!-- BOTONES DE VALIDACION * -->
         <div>
-            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
-            <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+        
+        <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
+          <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
+         
         </div>
     </div>
     </form>

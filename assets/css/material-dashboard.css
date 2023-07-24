@@ -2826,6 +2826,7 @@ select.form-control-lg:not([size]):not([multiple]),
 
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
+
 }
 
 .btn:not(:disabled):not(.disabled):active,
@@ -6399,7 +6400,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #9C27B0 !important;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #215c91 100%);
 }
 
 a.bg-primary:hover,
@@ -6421,7 +6422,7 @@ button.bg-secondary:focus {
 }
 
 .bg-success {
-  background-color: #4caf50 !important;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #215c91 100%);
 }
 
 a.bg-success:hover,

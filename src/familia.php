@@ -1,254 +1,193 @@
+
 <?php
 session_start();
 include "../conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "personal";
-$sql = mysqli_query($conexion, "SELECT p.*, d.* FROM permisos p INNER JOIN detalle_permisos d ON p.id = d.id_permiso WHERE d.id_usuario = $id_user AND p.nombre = '$permiso'");
-$existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-  header('Location: permisos.php');
-}
-
-if (isset($_GET['alert'])) {
-  $alert = $_GET['alert'];
-  echo $alert;
-}
-
-if (!empty($_POST)) {
-  $alert = "";
-  if (empty($_POST['documento_de_identidad']) || empty($_POST['tipo_de_documento']) || empty($_POST['fecha_de_expedicion']) || empty($_POST['nombre']) || empty($_POST['segundo_nombre']) || empty($_POST['apellido']) || empty($_POST['fecha_de_nacimiento']) || empty($_POST['grupo_sanguinio']) || empty($_POST['factor_RH']) || empty($_POST['eps']) || empty($_POST['arl']) || empty($_POST['ccf']) || empty($_POST['pais_de_residencia']) || empty($_POST['departamento']) || empty($_POST['estado_civil']) || empty($_POST['telefono']) || empty($_POST['celular']) || empty($_POST['email']) || empty($_FILES['imagen']['name'])) {
-
-    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        Todos los campos son obligatorios
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>';
-  } else {
-    $documento_de_identidad = $_POST['documento_de_identidad'];
-    $tipo_de_documento = $_POST['tipo_de_documento'];
-    $fecha_de_expedicion = $_POST['fecha_de_expedicion'];
-    $nombre = $_POST['nombre'];
-    $segundo_nombre = $_POST['segundo_nombre'];
-    $apellido = $_POST['apellido'];
-    $fecha_de_nacimiento = $_POST['fecha_de_nacimiento'];
-    $grupo_sanguinio = $_POST['grupo_sanguinio'];
-    $factor_RH = $_POST['factor_RH'];
-    $eps = $_POST['eps'];
-    $arl = $_POST['arl'];
-    $ccf = $_POST['ccf'];
-    $pais_de_residencia = $_POST['pais_de_residencia'];
-    $departamento = $_POST['departamento'];
-    $estado_civil = $_POST['estado_civil'];
-    $telefono = $_POST['telefono'];
-    $celular = $_POST['celular'];
-    $email = $_POST['email'];
-    $imagen = $_FILES['imagen']['name'];
-
-
-    // Verificar si se subió una imagen
-    $path = "/assets/img/data/" . basename($_FILES['imagen']['name']);
-
-    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $path)) {
-      echo "El archivo " .  basename($_FILES['imagen']['name']) . " ha sido subido";
-    } else {
-      echo "El archivo no se ha subido correctamente";
-      // Establecer una imagen por defecto si no se subió ninguna
-      $image_path = '/assets/img/logo.png';
-    }
-
-
-    $query_insert = mysqli_query($conexion, "INSERT INTO personal (documento_de_identidad, tipo_de_documento, fecha_de_expedicion, nombre, segundo_nombre, apellido, fecha_de_nacimiento, grupo_sanguinio, factor_RH, eps, arl, ccf, pais_de_residencia, departamento, estado_civil, telefono, celular, email, imagen) VALUES ('$documento_de_identidad', '$tipo_de_documento', '$fecha_de_expedicion', '$nombre', '$segundo_nombre', '$apellido', '$fecha_de_nacimiento', '$grupo_sanguinio', '$factor_RH', '$eps', '$arl', '$ccf', '$pais_de_residencia', '$departamento', '$estado_civil', '$telefono', '$celular', '$email', '$ruta$imagen')");
-
-    if ($query_insert) {
-      $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        Personal registrado correctamente
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>';
-    } else {
-      $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Error al registrar el personal
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>';
-    }
-  }
-} else {
-  if (!empty($_POST)) {
-    $sql_update = mysqli_query($conexion, "UPDATE personal SET documento_de_identidad = '$documento_de_identidad', tipo_de_documento = '$tipo_de_documento', fecha_de_expedicion = '$fecha_de_expedicion', nombre = '$nombre', segundo_nombre = '$segundo_nombre', apellido = '$apellido', fecha_de_nacimiento = '$fecha_de_nacimiento', grupo_sanguinio = '$grupo_sanguinio', factor_RH = '$factor_RH', eps = '$eps', arl = '$arl', ccf = '$ccf', pais_de_residencia = '$pais_de_residencia', departamento = '$departamento', estado_civil = '$estado_civil', telefono = '$telefono', celular = '$celular', email = '$email', imagen = '$ruta$imagen' WHERE id = '$id_update'");
-    if ($sql_update) {
-      $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        Personal actualizado correctamente
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">x</span>
-                        </button>
-                    </div>';
-    } else {
-      $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Error al actualizar el personal
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">x</span>
-                        </button>
-                    </div>';
-    }
-  }
-}
-
-mysqli_close($conexion);
-
 include_once "includes/header.php";
-
 ?>
-<h1 class="text-center" style="color: #9C27B0;">Bienvenido</h1>
-<h3 class="text-center">Registro Familiar</h3>
-<div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        <?php echo (isset($alert)) ? $alert : ''; ?>
-        <form action="" method="post" autocomplete="on" id="formulario" enctype="multipart/form-data">
-          <div class="row">
-            <!-- Tipo de Examen* -->
-            <div>
-            </div>
-            <!-- *IMAGEN* -->
-            <div class="col-md-3">
-              <input type="file" name="imagen" id="imagen" class="form-control" />
-              <label for="imagen" class="text-success font-weight-bold">Subir Imagen</label>
-            </div>
-            <!-- BOTONES DE VALIDACION * -->
-            <div>
-              <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
-              <input type="button" value="Actualizar" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
-              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#ventanaModal"><i class='fas fa-edit'></i>Crear </a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Ventana modal -->
-<div id="ventanaModal" class="modal">
-  <div class="contenido-modal">
-    <span class="cerrar"></span>
-    <div class="container">
-      <!-- Aquí colocamos el contenido PHP -->
-      <?php
-      include "./controllers/Conexion.php";
-      $db =  connect();
-      $query = $db->query("select * from continente");
-      $countries = array();
-      while ($r = $query->fetch_object()) {
-        $countries[] = $r;
-      }
-      ?>
-      <div class="panel panel-default">
-        <nav class="navbar navbar-default">
-          <!-- Extra para moviles mostrar -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="./">Inicio <span class="sr-only">(current)</span></a></li>
-              <li><a href="./controllers/Nuevo.php">Agregar Registro</a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </nav>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-12">
-              <h1>Bienvenidos</h1>
-              <?php if (isset($_COOKIE["comboadd"])) : ?>
-                <p class="alert alert-success">Agregado exitosamente!</p>
-              <?php setcookie("comboadd", 0, time() - 1);
-              endif; ?>
+  <style>
+    .botones {
+      margin-left: 45% !important;
+      border-radius: 5px;
+      background-color: #1296B4;
+      padding: 10px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-body">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <h3 class="text-center">Datos Familiares</h3>
+          <!-- Button trigger modal -->
+          <button type="button" class="botones" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Agregar Familiar
+          </button>
+
+          <!-- Primer Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Buscar Familiar</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Combobox para seleccionar la relación familiar -->
+                  <div class="mb-3">
+                    <label for="relacion_familiar" class="form-label">Selecciona una relación familiar:</label>
+                    <select class="form-select" id="relacion_familiar" name="relacion_familiar" onchange="redirectToIngresar()">
+                      <option value="" selected disabled>Seleccione una opción</option>
+                      <option value="conyugue">Conyugue</option>
+                      <option value="hijo">Hijo</option>
+                      <option value="padre">Padre</option>
+                      <option value="madre">Madre</option>
+                      <option value="hermano">Hermano</option>
+                      <option value="abuelo">Abuelo</option>
+                      <option value="abuela">Abuela</option>
+                      <option value="tio">Tio</option>
+                      <option value="padrasto">Padrasto</option>
+                      <option value="madrasta">Madrasta</option>
+                      <option value="medio_hermano">Medio Hermano</option>
+                      <option value="hermanastro">Hermanastro</option>
+                    </select>
+                  </div>
+                  <!-- Lista para mostrar los nombres agregados -->
+                  <ul id="nombresList" class="list-group">
+
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                 <!-- falta el botton para ver el 2 modal -->
+                   <!-- Botón "Agregar" para abrir el segundo modal -->
+                   <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#guardarModal">
+                    Agregar
+                  </button>
+                  <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <form method="post" action="Agregar.php?opt=all">
-                <div class="form-group">
-                  <label for="name1">Continente</label>
-                  <select id="continente_id" class="form-control" name="continente_id" required>
-                    <option value="">Seleccione</option>
-                    <?php foreach ($countries as $c) : ?>
-                      <option value="<?php echo $c->id; ?>"><?php echo $c->name; ?></option>
-                    <?php endforeach; ?>
-                  </select>
-                </div>
 
-                <div class="form-group">
-                  <label for="name1">Pais</label>
-                  <select id="pais_id" class="form-control" name="pais_id" required>
-                    <option value="">Seleccione</option>
-                  </select>
+          <!-- Segundo Modal para guardar los datos -->
+          <div class="modal fade" id="guardarModal" tabindex="-1" aria-labelledby="guardarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="guardarModalLabel">Guardar Familiar</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-group">
-                  <label for="name1">Ciudad</label>
-                  <select id="ciudad_id" class="form-control" name="ciudad_id" required>
-                    <option value="">Seleccione</option>
-                  </select>
+                <div class="modal-body">
+                  <!-- Campo de entrada para el nombre -->
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" require>
+                  </div>                
                 </div>
-                <button type="submit" class="btn btn-default">Agregar Registro</button>
-              </form>
+                <div class="modal-footer">
+                  <!-- Botón "Agregar" para agregar el nombre a la lista -->
+
+                  <button type="button" class="btn btn-secondary" onclick="agregarNombre()">Agregar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="panel-footer"></div>
-      </div><!-- /.Cierra-default-panel -->
-    </div><!-- /.container -->
-    <script>
-      // Obtener elementos del DOM
-      const modal = document.getElementById("ventanaModal");
-      const modalBtn = document.getElementById("abrirModal");
-      const closeBtn = document.getElementsByClassName("cerrar")[0];
-      const guardarBtn = document.getElementById("guardarBtn");
+      </div>
+    </div>
+  </div>
 
-      // Abrir el modal al hacer clic en el botón
-      modalBtn.onclick = function() {
-        modal.style.display = "block";
-      };
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-      // Cerrar el modal al hacer clic en la 'x'
-      closeBtn.onclick = function() {
-        modal.style.display = "none";
-      };
+ <!-- JavaScript para la función de redirectToIngresar() y agregarNombre() -->
+<script>
+  function redirectToIngresar() {
+    // Obtener el valor seleccionado del combobox
+    var seleccion = document.getElementById("relacion_familiar").value;
 
-      // Cerrar el modal al hacer clic fuera del contenido
-      window.onclick = function(event) {
-        if (event.target === modal) {
-          modal.style.display = "none";
-        }
-      };
+    // Redirigir a la página "Ingresar" correspondiente según el valor seleccionado
+    switch (seleccion) {
+      case "conyugue":
+      case "hijo":
+      case "padre":
+      case "madre":
+      case "hermano":
+      case "abuelo":
+      case "abuela":
+      case "tio":
+      case "padrato":
+      case "madrasta":
+      case "medio_hermano":
+      case "hermanastro":
+        // redirigir a la página "Ingresar" correspondiente
+        window.location.href = "datos_personales.php?relacion_familiar=" + seleccion;
+     
+        break;
+      default:
+        // Si no se seleccionó ninguna opción válida, no hacer ninguna redirección.
 
-      // Función para guardar los datos ingresados
-      guardarBtn.onclick = function() {
-        const continente = document.getElementById("continente").value;
-        const pais = document.getElementById("pais").value;
-        const ciudad = document.getElementById("ciudad").value;
+        break;
+    }
+  }
+  var nombresArray = [];
 
-        // Aquí puedes hacer lo que desees con los datos ingresados,
-        // por ejemplo, enviarlos a un servidor o procesarlos en JavaScript.
-        console.log("Continente:", continente);
-        console.log("País:", pais);
-        console.log("Ciudad:", ciudad);
+  function agregarNombre() {
+    // Obtener el nombre ingresado en el segundo modal
+    var nombre = document.getElementById("nombre").value;
+   
 
-        // Cerrar el modal después de guardar los datos
-        modal.style.display = "none";
-      };
-    </script>
+    // Agregar el nombre al array de nombres
+    nombresArray.push(nombre);
 
-    <?php
-    include_once "includes/footer.php";
-    ?>
+    // Limpiar el campo de nombre en el segundo modal
+    document.getElementById("nombre").value = "";
+      
+    // Luego, puedes cerrar el segundo modal
+    var guardarModal = new bootstrap.Modal(document.getElementById("guardarModal"));
+    guardarModal.hide();    
+    if (nombre == "") {
+      alert("El campo nombre no puede estar vacio");
+    }
+    if (nombre != "") {
+      alert("El nombre " + nombre + " se agregó correctamente");
+    }
+
+    // Mostrar los nombres agregados en el primer modal
+    actualizarNombresList();
+   
+  }
+
+  function actualizarNombresList() {
+    // Obtener el elemento de lista de nombres en el primer modal
+    var nombresList = document.getElementById("nombresList");
+
+    // Limpiar el contenido actual de la lista
+    nombresList.innerHTML = "";
+
+    // Recorrer el array de nombres y agregarlos a la lista
+    nombresArray.forEach(function(nombre) {
+      var listItem = document.createElement("li");
+      listItem.textContent = nombre;
+      listItem.classList.add("list-group-item");
+      nombresList.appendChild(listItem);
+      
+    });
+   
+  }
+</script>
+</body>
+
+

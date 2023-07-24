@@ -40,7 +40,7 @@ if (!empty($_SESSION['active'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,7 +51,7 @@ if (!empty($_SESSION['active'])) {
 </head>
 <body>
     <div style="display: flex;justify-content: space-between;">
-        <div class="container" style="display: none;">            
+        <div class="container">            
             <form action="" id="login-form" method="POST">
                 <div class="user-details">
                     <div class="input-box">

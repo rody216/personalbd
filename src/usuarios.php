@@ -13,71 +13,48 @@ if (!empty($_POST)) {
     $nombre = $_POST['nombre'];
     $email = $_POST['correo'];
     $user = $_POST['usuario'];
+    $clave = $_POST['clave'];
     $alert = "";
-    if (empty($nombre) || empty($email) || empty($user)) {
+
+    // Validar que la contraseña tenga al menos 11 caracteres
+    if (strlen($clave) < 11) {
         $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    Todo los campos son obligatorio
+                    La contraseña debe tener al menos 11 caracteres
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>';
+    } else if (!preg_match('/[0-9]/', $clave) || !preg_match('/[a-z]/', $clave) || !preg_match('/[A-Z]/', $clave)) {
+        // Validar que la contraseña contenga al menos un número, una letra minúscula y una letra mayúscula
+        $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    La contraseña debe contener al menos un número, una letra minúscula y una letra mayúscula y 11 caracteres como mínimo
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>';
     } else {
-        if (empty($id)) {
-            $clave = $_POST['clave'];
-            if (empty($clave)) {
-                $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    La contraseña es requerido
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>';
-            } else {
-                $clave = md5($_POST['clave']);
-                $query = mysqli_query($conexion, "SELECT * FROM usuario where correo = '$email'");
-                $result = mysqli_fetch_array($query);
-                if ($result > 0) {
-                    $alert = '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    El correo ya existe
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>';
-                } else {
-                    $query_insert = mysqli_query($conexion, "INSERT INTO usuario(nombre,correo,usuario,clave) values ('$nombre', '$email', '$user', '$clave')");
-                    if ($query_insert) {
-                        $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        // Encriptar la contraseña con password_hash()
+        $clave = password_hash($clave, PASSWORD_DEFAULT);
+
+        // Resto del código para validar y guardar la información en la base de datos
+        // ...
+
+        // Continuar con el proceso para guardar la información en la base de datos
+        $query_insert = mysqli_query($conexion, "INSERT INTO usuario(nombre,correo,usuario,clave) values ('$nombre', '$email', '$user', '$clave')");
+        if ($query_insert) {
+            $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                     Usuario Registrado
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>';
-                    } else {
-                        $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        } else {
+            $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                     Error al registrar
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>';
-                    }
-                }
-            }
-        } else {
-            $sql_update = mysqli_query($conexion, "UPDATE usuario SET nombre = '$nombre', correo = '$email' , usuario = '$user' WHERE idusuario = $id");
-            if ($sql_update) {
-                $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Usuario Modificado
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>';
-            } else {
-                $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Error al modificar
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>';
-            }
         }
     }
 }
@@ -117,7 +94,7 @@ include "includes/header.php";
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
+            <input pattern=".{11,99}" required type="submit" value="Registrar" class="btn btn-primary" id="btnAccion">
             <input type="button" value="Nuevo" class="btn btn-success" id="btnNuevo" onclick="limpiar()">
         </form>
     </div>
